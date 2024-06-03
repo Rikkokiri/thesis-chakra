@@ -1,6 +1,6 @@
-import "../styles/QuestionCard.css";
+import "../styles/QuestionCard.css"; // TODO: Get rid of style file (define text styles)
 import { useTranslation } from "react-i18next";
-import { Badge } from "@chakra-ui/react";
+import { Badge, Card, CardBody, CardHeader, Flex } from "@chakra-ui/react";
 import { ToggleButton } from "../../../components/ToggleButton/ToggleButton";
 import { FiEyeOff } from "react-icons/fi";
 import { Category, Question } from "@data/types";
@@ -32,42 +32,49 @@ export const QuestionCard = (props: ICardProps) => {
   const questionNumber = category.position + question.position + 1;
 
   return (
-    <section className="card">
-      <div className="row-centered card__header">
+    <Card size="lg" mb="1.5rem" variant="centered">
+      <CardHeader>
         <Badge>{`${questionNumber}/${questionsCount}`}</Badge>
         <p className="category">{category.name.en}</p>
-      </div>
-      <h2 className="question">{question.question.en}</h2>
-      <div className="row-centered info-buttons">
-        {question.additionalInfo && (
-          <AdditionalInfo t={t} info={question.additionalInfo} />
-        )}
-        <ToggleButton
-          onClick={() => toggleQuestionHiding(question.id)}
-          isToggled={!!answer?.hideQuestion}
-          untoggledIcon={<FiEyeOff />}
-          toggledIcon={<FiEyeOff />}
-          variant="ghost"
-          size="small"
+      </CardHeader>
+      <CardBody>
+        <h2 className="question">{question.question.en}</h2>
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          mt="6px"
+          mb="1.125rem"
         >
-          {t("question.hide")}
-        </ToggleButton>
-      </div>
-      {question.questionType === "yes-no" ? (
-        <YesNoQuestion
-          answerQuestion={answerQuestion}
-          questionId={questionId}
-          t={t}
-          answer={answer?.answer ?? null}
-        />
-      ) : (
-        <RadioQuestion
-          questionId={questionId}
-          answerQuestion={answerQuestion}
-          t={t}
-          value={answer?.answer ?? null}
-        />
-      )}
-    </section>
+          {question.additionalInfo && (
+            <AdditionalInfo t={t} info={question.additionalInfo} />
+          )}
+          <ToggleButton
+            onClick={() => toggleQuestionHiding(question.id)}
+            isToggled={!!answer?.hideQuestion}
+            untoggledIcon={<FiEyeOff />}
+            toggledIcon={<FiEyeOff />}
+            variant="ghost"
+            size="small"
+          >
+            {t("question.hide")}
+          </ToggleButton>
+        </Flex>
+        {question.questionType === "yes-no" ? (
+          <YesNoQuestion
+            answerQuestion={answerQuestion}
+            questionId={questionId}
+            t={t}
+            answer={answer?.answer ?? null}
+          />
+        ) : (
+          <RadioQuestion
+            questionId={questionId}
+            answerQuestion={answerQuestion}
+            t={t}
+            value={answer?.answer ?? null}
+          />
+        )}
+      </CardBody>
+    </Card>
   );
 };

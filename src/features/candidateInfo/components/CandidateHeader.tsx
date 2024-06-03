@@ -1,5 +1,6 @@
 import "../styles/CandidateHeader.css";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
+import { Flex } from "@chakra-ui/react";
 
 export const CandidateIntroHeader = (
   props: ReturnType<typeof useCandidateInfo>,
@@ -11,7 +12,14 @@ export const CandidateIntroHeader = (
   }
 
   return (
-    <div className="candidate-header">
+    <Flex
+      // TODO: background-color: var(--card-bg);
+      direction="column"
+      p={6}
+      mb={12}
+      textAlign="center"
+      gap={4}
+    >
       <div>
         <p className="subtitle m-0">{t("electionName")}</p>
         <h1 className="heading-1-large m-0">{candidate.name}</h1>
@@ -23,9 +31,22 @@ export const CandidateIntroHeader = (
             {candidate.organization || candidate.creator}
           </p>
         ))}
-      <div className="candidate-number">
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        my={4}
+        mx="auto"
+        // TODO: Text style
+        lineHeight={1.5}
+        fontWeight={700}
+        fontSize={"1.25rem"}
+        borderRadius={"50%"}
+        border="1px solid black" // TODO: Update color to primary
+        h={"7.75rem"}
+        w={"7.75rem"}
+      >
         {t("candidate.number")} {candidate.number}
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 };

@@ -1,12 +1,11 @@
 @import "./colors.css";
-@import "./variables.css";
-@import "./reset.css";
+
+/* @import "./reset.css"; */
 @import "./typography.css";
 @import "./layout.css";
 @import "./utils.css";
-
-/* @import "./themes/light-theme.css";
-@import "./themes/dark-theme.css"; */
+@import "./themes/light-theme.css";
+@import "./themes/dark-theme.css";
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* TODO: Update font family */
@@ -16,15 +15,16 @@
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* TODO: Delete once included in the theme definition */
+  --toolbar-height: 72px;
+  --border-radius-sm: 4px;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-size: 16px; /* 14px in Yle's styles */
-  color: var(--text-primary);
   height: 100vh;
-  background-color: var(--bg-primary);
 }
 
 a,
@@ -49,7 +49,6 @@ a:hover {
   flex-direction: column;
   place-items: center flex-start;
   flex: 1 0 auto;
-  background-color: var(--bg-primary);
 }
 
 #app-footer {

@@ -9,6 +9,7 @@
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@stores/*": ["./src/stores/*"],
       "@data/*": ["./src/data/*"],

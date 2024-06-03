@@ -20,7 +20,7 @@
 }
 
 .page-intro {
-  margin: var(--spacing) var(--spacing) 32px;
+  margin: 1rem 1rem 32px;
   line-height: 1.5;
   max-width: 680px;
 }

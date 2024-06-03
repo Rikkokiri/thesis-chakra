@@ -1,12 +1,17 @@
 import "../styles/CandidatesMatchBar.css";
-import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { useState } from "react";
 import { FiEyeOff } from "react-icons/fi";
 import { FiEye } from "react-icons/fi";
 import { MatchButton } from "./MatchButton";
 import { useCandidatesMatch } from "../hooks/useCandidatesMatch";
 import { MatchWithDetails } from "../types";
-import { Box, BoxProps, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  Flex,
+  IconButton,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 export const CandidatesMatchBar = (
   props: ReturnType<typeof useCandidatesMatch>,
@@ -18,10 +23,30 @@ export const CandidatesMatchBar = (
     return null;
   }
 
+  const bg = useColorModeValue("brand.white", "brand.blueBlack");
+
   return (
-    <header className="match-bar">
-      <div className="match-bar__content">
-        <div className="match-bar__matches">
+    <Flex
+      as="header"
+      position="fixed"
+      top={0}
+      zIndex={99}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      w="100%"
+      h="76px"
+      backgroundColor={bg}
+      boxShadow="rgba(0, 0, 0, 19%) 0 2px 4px 0"
+    >
+      <Flex maxW="520px" alignItems="center" w="100%">
+        <Flex
+          w="100%"
+          justifyContent="space-evenly"
+          alignItems="center"
+          p={0}
+          pt={1}
+        >
           {resultsHidden || !topFourCandidates
             ? [...Array(topCount).keys()].map((index) => (
                 <MatchPlaceholder key={index} />
@@ -29,25 +54,22 @@ export const CandidatesMatchBar = (
             : topFourCandidates.map((candidate: MatchWithDetails) => (
                 <MatchButton candidate={candidate} key={candidate.id} />
               ))}
-        </div>
-        <ToggleButton
-          isToggled={resultsHidden}
+        </Flex>
+        <IconButton
           onClick={() => setResultsHidden(!resultsHidden)}
-          untoggledIcon={<FiEye />}
-          toggledIcon={<FiEyeOff />}
+          icon={resultsHidden ? <FiEyeOff /> : <FiEye />}
           variant="ghost"
-          size="medium"
-          iconSize={24}
-          className="match-bar__toggle"
-          toggledClassName="toggled-transparent"
+          fontSize="1.5rem"
+          aria-label={resultsHidden ? "Show results" : "Hide results"} // TODO: Translate
         />
-      </div>
-    </header>
+      </Flex>
+    </Flex>
   );
 };
 
 const PlaceholderBox = (props: BoxProps) => {
-  return <Box w="100%" mb="0.5" {...props} className="placeholder" />;
+  const bg = useColorModeValue("brand.gray10", "brand.gray80");
+  return <Box w="100%" borderRadius="0.25rem" mb="0.5" {...props} bg={bg} />;
 };
 
 const MatchPlaceholder = () => {

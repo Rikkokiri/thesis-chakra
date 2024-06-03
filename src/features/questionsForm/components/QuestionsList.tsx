@@ -1,13 +1,13 @@
+import { chakra } from "@chakra-ui/react";
 import { QuestionCard } from "./QuestionCard";
 import { IQuestionsForm } from "../hooks/useQuestionsForm";
 import { Question } from "src/data/types";
-import "../styles/QuestionsForm.css";
 
 export const QuestionsList = (props: IQuestionsForm) => {
   const { categoriesAndQuestions, questionsTotalCount, answers } = props;
 
   return (
-    <section className="questions-list">
+    <chakra.section w="100%">
       {categoriesAndQuestions.map((category) => (
         <article key={category.id} className="question-page__category-section">
           {category.questions.map((question: Question) => (
@@ -24,6 +24,6 @@ export const QuestionsList = (props: IQuestionsForm) => {
         </article>
       ))}
       {/* TODO: Link to results page */}
-    </section>
+    </chakra.section>
   );
 };
