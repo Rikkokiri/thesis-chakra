@@ -16,7 +16,7 @@ function App() {
     <>
       <Toolbar />
       <div id="main-wrapper">
-        <main>
+        <main id="app-main">
           <Outlet />
         </main>
         <footer id="app-footer">

@@ -1,5 +1,6 @@
-import { getCandidateById } from "@data/api";
 import { useParams } from "react-router-dom";
+import { Flex } from "@chakra-ui/react";
+import { getCandidateById } from "@data/api";
 import { CandidateInfo, CandidateHeader } from "src/features/candidateInfo";
 import { CandidateAnswers } from "src/features/candidateAnswers";
 import { useEffect } from "react";
@@ -17,10 +18,10 @@ export const CandidatePage = () => {
   return (
     <>
       <CandidateHeader candidateId={candidate.id} />
-      <div className="page-sections__column mb-24">
+      <Flex direction="column" gap="6" maxW="680px" mb="6">
         <CandidateInfo candidateId={candidate.id} />
         <CandidateAnswers candidate={candidate} />
-      </div>
+      </Flex>
     </>
   );
 };

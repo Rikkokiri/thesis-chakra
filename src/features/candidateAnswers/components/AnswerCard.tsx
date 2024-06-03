@@ -1,6 +1,5 @@
 import "../styles/AnswerCard.css";
 import { useTranslation } from "react-i18next";
-import { Tag } from "../../../components/Tag/Tag";
 import { Question } from "@data/types";
 import { RadioAnswer } from "./RadioAnswer";
 import { YesOrNoAnswer } from "./YesOrNoAnswer";
@@ -8,6 +7,7 @@ import { CandidateAnswer } from "@data/candidateAnswers";
 import { CommentCard } from "./CommentCard";
 import { useLocalizedString } from "@hooks/useLocalizedString";
 import { getAnswerByQuestionId } from "@stores/answerStore";
+import { Badge } from "@chakra-ui/react";
 
 interface ICardProps {
   question: Question;
@@ -31,7 +31,7 @@ export const AnswerCard = (props: ICardProps) => {
   return (
     <section className="answer-card">
       <div className="row-centered card__header">
-        <Tag variant="negative">{`${question.position}/${questionsCount}`}</Tag>
+        <Badge variant="negative">{`${question.position}/${questionsCount}`}</Badge>
       </div>
       <h2 className="question">{question.question.en}</h2>
       {question.questionType === "yes-no" ? (

@@ -6,6 +6,7 @@ import { FiEye } from "react-icons/fi";
 import { MatchButton } from "./MatchButton";
 import { useCandidatesMatch } from "../hooks/useCandidatesMatch";
 import { MatchWithDetails } from "../types";
+import { Box, BoxProps, Flex } from "@chakra-ui/react";
 
 export const CandidatesMatchBar = (
   props: ReturnType<typeof useCandidatesMatch>,
@@ -45,11 +46,21 @@ export const CandidatesMatchBar = (
   );
 };
 
+const PlaceholderBox = (props: BoxProps) => {
+  return <Box w="100%" mb="0.5" {...props} className="placeholder" />;
+};
+
 const MatchPlaceholder = () => {
   return (
-    <div className="column-centered placeholder-match">
-      <div className="placeholder-candidate"></div>
-      <div className="placeholder-score"></div>
-    </div>
+    <Flex
+      direction="column"
+      justifyContent="space-between"
+      alignItems="center"
+      w="8"
+      h="100%"
+    >
+      <PlaceholderBox h="34px" />
+      <PlaceholderBox h="18px" />
+    </Flex>
   );
 };

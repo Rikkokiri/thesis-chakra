@@ -4,8 +4,9 @@
 @import "./typography.css";
 @import "./layout.css";
 @import "./utils.css";
-@import "./themes/light-theme.css";
-@import "./themes/dark-theme.css";
+
+/* @import "./themes/light-theme.css";
+@import "./themes/dark-theme.css"; */
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* TODO: Update font family */
@@ -43,11 +44,12 @@ a:hover {
   height: calc(100% - var(--toolbar-height));
 }
 
-main {
+#app-main {
   display: flex;
   flex-direction: column;
   place-items: center flex-start;
   flex: 1 0 auto;
+  background-color: var(--bg-primary);
 }
 
 #app-footer {

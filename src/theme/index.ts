@@ -1,6 +1,7 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 import { brand } from "./colors";
-import { components } from "./components";
+import { badgeTheme } from "./components/badge";
+import { buttonTheme } from "./components/button";
 
 // 2. Add your color mode config
 const config: ThemeConfig = {
@@ -16,7 +17,10 @@ const theme = extendTheme({
   },
   // fonts: {},
   // textStyles: {},
-  components: components,
+  components: {
+    Badge: badgeTheme,
+    Button: buttonTheme,
+  },
 });
 
 export default theme;

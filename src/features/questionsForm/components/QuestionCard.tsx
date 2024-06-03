@@ -1,8 +1,8 @@
 import "../styles/QuestionCard.css";
 import { useTranslation } from "react-i18next";
+import { Badge } from "@chakra-ui/react";
 import { ToggleButton } from "../../../components/ToggleButton/ToggleButton";
 import { FiEyeOff } from "react-icons/fi";
-import { Tag } from "../../../components/Tag/Tag";
 import { Category, Question } from "@data/types";
 import { Answer } from "@stores/answerStore";
 import { RadioQuestion } from "./RadioQuestion";
@@ -34,7 +34,7 @@ export const QuestionCard = (props: ICardProps) => {
   return (
     <section className="card">
       <div className="row-centered card__header">
-        <Tag>{`${questionNumber}/${questionsCount}`}</Tag>
+        <Badge>{`${questionNumber}/${questionsCount}`}</Badge>
         <p className="category">{category.name.en}</p>
       </div>
       <h2 className="question">{question.question.en}</h2>

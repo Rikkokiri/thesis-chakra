@@ -32,25 +32,9 @@
 /**
  * Placeholder styles
  */
-.match-bar .placeholder-match {
-  justify-content: space-between;
-  height: 100%;
-  width: 32px;
-}
 
-.placeholder-candidate,
-.placeholder-score {
+.placeholder {
   background-color: var(--match-placeholder-bg);
-  width: 100%;
-  margin-bottom: 2px;
-}
-
-.placeholder-candidate {
-  height: 34px;
-}
-
-.placeholder-score {
-  height: 18px;
 }
 
 /**

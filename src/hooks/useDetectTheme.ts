@@ -26,9 +26,11 @@ export function useDetectTheme() {
 
   function setActiveTheme(isDarkMode: boolean) {
     if (isDarkMode) {
-      document.body.classList.add("dark-theme");
+      // document.body.classList.add("dark-theme");
+      document.body.classList.add("dark");
     } else {
-      document.body.classList.remove("dark-theme");
+      // document.body.classList.remove("dark-theme");
+      document.body.classList.remove("dark");
     }
   }
 
