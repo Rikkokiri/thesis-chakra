@@ -3,6 +3,7 @@ import "../styles/CandidateModal.css";
 import { Modal } from "@components/Modal/Modal";
 import { useTranslation } from "react-i18next";
 import { MatchWithDetails } from "../types";
+import { Heading } from "@chakra-ui/react";
 
 interface ICandidateModalProps {
   isOpen: boolean;
@@ -31,7 +32,9 @@ export const CandidateModal = ({
           <span className="candidate-modal__score">{`${percentage}%`}</span>
         </div>
         <div className="candidate-modal__details-section">
-          <h3 className="candidate-modal__name">{name}</h3>
+          <Heading as="h3" size="lg" lineHeight="1.5rem" fontWeight={700}>
+            {name}
+          </Heading>
           <span className="candidate-modal__number body-small">
             {t("candidate.number")} {candidate.number}
           </span>

@@ -5,6 +5,7 @@ const baseStyle = {
   lineHeight: 1.5,
   padding: ".25rem 1.5rem",
   borderRadius: "100px", // TODO: Use rem
+  gap: 2,
 };
 
 const solid = defineStyle({
@@ -16,11 +17,16 @@ const solid = defineStyle({
   },
 });
 
+const outline = defineStyle({});
+
+const ghost = defineStyle({});
+
+const toggledGhost = defineStyle({});
+
 export const buttonTheme = defineStyleConfig({
   baseStyle,
-  variants: { solid },
   defaultProps: {
     variant: "solid",
   },
-  // variants: { solid, outline, ghost, toggledGhost },
+  variants: { solid, outline, ghost, toggledGhost },
 });

@@ -1,6 +1,13 @@
 import "../styles/QuestionCard.css"; // TODO: Get rid of style file (define text styles)
 import { useTranslation } from "react-i18next";
-import { Badge, Card, CardBody, CardHeader, Flex } from "@chakra-ui/react";
+import {
+  Badge,
+  Card,
+  CardBody,
+  CardHeader,
+  Flex,
+  Heading,
+} from "@chakra-ui/react";
 import { ToggleButton } from "../../../components/ToggleButton/ToggleButton";
 import { FiEyeOff } from "react-icons/fi";
 import { Category, Question } from "@data/types";
@@ -38,7 +45,9 @@ export const QuestionCard = (props: ICardProps) => {
         <p className="category">{category.name.en}</p>
       </CardHeader>
       <CardBody>
-        <h2 className="question">{question.question.en}</h2>
+        <Heading as="h2" variant="question">
+          {question.question.en}
+        </Heading>
         <Flex
           alignItems="center"
           justifyContent="center"

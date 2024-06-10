@@ -5,6 +5,7 @@ import { styles } from "./globalStyles";
 import { badgeTheme } from "./components/badge";
 import { buttonTheme } from "./components/button";
 import { cardTheme } from "./components/card";
+import { headingTheme } from "./components/heading";
 import { iconButtonTheme } from "./components/icon-button";
 
 // 2. Add your color mode config
@@ -26,9 +27,10 @@ const theme = extendTheme({
     Badge: badgeTheme,
     Button: buttonTheme,
     Card: cardTheme,
+    Heading: headingTheme,
     IconButton: iconButtonTheme,
   },
-  semanticToken: {
+  semanticTokens: {
     colors: {
       primary: {
         default: "brand.blueBlack",

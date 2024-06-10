@@ -55,12 +55,6 @@
   padding-left: 18px;
 }
 
-.candidate-modal__name {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 700;
-}
-
 .body-small.candidate-modal__number {
   margin-top: 10px;
   font-weight: 700;

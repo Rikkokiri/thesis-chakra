@@ -1,5 +1,5 @@
 import "@components/PageHeader/PageHeader.css";
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Heading } from "@chakra-ui/react";
 import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
 import { useAnswerStore } from "@stores/answerStore";
 import { useTranslation } from "react-i18next";
@@ -20,7 +20,9 @@ export const FrontPage = () => {
   return (
     <>
       <div className="page-header">
-        <h1 className="heading-1 mb-16">{t("frontPage.title")}</h1>
+        <Heading size="3xl" mb={4}>
+          {t("frontPage.title")}
+        </Heading>
         <Button leftIcon={<FiChevronRight />} onClick={startCompass}>
           {t("frontPage.start")}
         </Button>

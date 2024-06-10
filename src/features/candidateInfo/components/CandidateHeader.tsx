@@ -1,6 +1,6 @@
 import "../styles/CandidateHeader.css";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 
 export const CandidateIntroHeader = (
   props: ReturnType<typeof useCandidateInfo>,
@@ -22,7 +22,7 @@ export const CandidateIntroHeader = (
     >
       <div>
         <p className="subtitle m-0">{t("electionName")}</p>
-        <h1 className="heading-1-large m-0">{candidate.name}</h1>
+        <Heading size="4xl">{candidate.name}</Heading>
       </div>
       {candidate.organization ||
         (candidate.creator && (

@@ -7,7 +7,7 @@ import { CandidateAnswer } from "@data/candidateAnswers";
 import { CommentCard } from "./CommentCard";
 import { useLocalizedString } from "@hooks/useLocalizedString";
 import { getAnswerByQuestionId } from "@stores/answerStore";
-import { Badge } from "@chakra-ui/react";
+import { Badge, Heading } from "@chakra-ui/react";
 
 interface ICardProps {
   question: Question;
@@ -33,7 +33,9 @@ export const AnswerCard = (props: ICardProps) => {
       <div className="row-centered card__header">
         <Badge variant="negative">{`${question.position}/${questionsCount}`}</Badge>
       </div>
-      <h2 className="question">{question.question.en}</h2>
+      <Heading as="h2" variant="question">
+        {question.question.en}
+      </Heading>
       {question.questionType === "yes-no" ? (
         <YesOrNoAnswer
           questionId={questionId}
