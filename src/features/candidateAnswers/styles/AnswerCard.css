@@ -7,20 +7,3 @@
   border-radius: var(--border-radius-sm);
   max-width: 680px;
 }
-
-.answer-card .card__header {
-  gap: 1.5rem;
-}
-
-.question {
-  font-weight: 900;
-  font-size: 24px;
-  max-width: 343px;
-  text-align: center;
-  margin: 20px 0;
-}
-
-.answer__buttons {
-  gap: 24px;
-  margin-top: 8px;
-}

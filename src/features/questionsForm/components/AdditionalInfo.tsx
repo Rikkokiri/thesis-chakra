@@ -1,5 +1,5 @@
 import { FiInfo } from "react-icons/fi";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/react";
 import { LocalizedString } from "@data/types";
 import { Modal } from "@components/Modal/Modal";
 import { TFunction } from "i18next";
@@ -39,7 +39,7 @@ export const AdditionalInfo = (props: IAdditionalInfoProps) => {
         <Heading size="lg" pb={2}>
           {t("question.whatAbout")}
         </Heading>
-        <p className="body-small">{localize(info)}</p>
+        <Text textStyle="bodySm">{localize(info)}</Text>
       </Modal>
     </>
   );

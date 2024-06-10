@@ -7,7 +7,7 @@ import { CandidateAnswer } from "@data/candidateAnswers";
 import { CommentCard } from "./CommentCard";
 import { useLocalizedString } from "@hooks/useLocalizedString";
 import { getAnswerByQuestionId } from "@stores/answerStore";
-import { Badge, Heading } from "@chakra-ui/react";
+import { Badge, Flex, Heading } from "@chakra-ui/react";
 
 interface ICardProps {
   question: Question;
@@ -30,9 +30,9 @@ export const AnswerCard = (props: ICardProps) => {
 
   return (
     <section className="answer-card">
-      <div className="row-centered card__header">
+      <Flex justifyContent="center" align="center" gap={6} w="100%">
         <Badge variant="negative">{`${question.position}/${questionsCount}`}</Badge>
-      </div>
+      </Flex>
       <Heading as="h2" variant="question">
         {question.question.en}
       </Heading>

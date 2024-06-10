@@ -1,16 +1,11 @@
 @import "./colors.css";
 
 /* @import "./reset.css"; */
-@import "./typography.css";
-@import "./layout.css";
-@import "./utils.css";
 @import "./themes/light-theme.css";
 @import "./themes/dark-theme.css";
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* TODO: Update font family */
-  line-height: 1.5;
-  font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
@@ -72,11 +67,4 @@ a:hover {
 .footer-links a {
   padding: 12px 24px;
   font-weight: 700;
-}
-
-.page-header {
-  padding: 24px;
-  text-align: center;
-  background-color: var(--page-header-bg);
-  width: 100%;
 }

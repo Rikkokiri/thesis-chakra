@@ -1,3 +1,4 @@
+import { Text } from "@chakra-ui/react";
 import "../styles/MatchButton.css";
 import { useState } from "react";
 import { CandidateModal } from "./CandidateModal";
@@ -18,13 +19,12 @@ export const MatchButton = (props: IMatchButtonProps) => {
         aria-label={ariaLabel}
         className="match-result"
         onClick={() => {
-          console.log("Clicked the button");
           setIsModalOpen(true);
         }}
       >
         <div className="match-result__img-wrapper">
           <img src={logoSrc} aria-hidden className="match-result__img" />
-          <p className="match-result__score">{`${percentage}%`}</p>
+          <Text textStyle="bodySm" textAlign="center">{`${percentage}%`}</Text>
         </div>
       </button>
       <CandidateModal

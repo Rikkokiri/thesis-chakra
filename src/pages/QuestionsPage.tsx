@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
-import { Button, Heading } from "@chakra-ui/react";
+import { Button, Heading, Text } from "@chakra-ui/react";
 import "./QuestionsPage.css";
 import { FiArrowDown } from "react-icons/fi";
 import { QuestionForm } from "../features/questionsForm";
@@ -22,12 +22,13 @@ export const QuestionsPage = () => {
       {/* inView && <CandidatesMatch />*/}
       <CandidatesMatch />
       <section className="question-page__header">
-        <p className="subtitle m-0">{t("electionName")}</p>
+        <Text textStyle="subtitle">{t("electionName")}</Text>
         <Heading as="h1" size="3xl" /* className="heading-1 pageheader_title"*/>
           {t("questionPage.findYourCandidate")}
         </Heading>
-        <p className="page-intro">{t("questionPage.description")}</p>
-
+        <Text m="1rem" mb="2rem" maxWidth="680px">
+          {t("questionPage.description")}
+        </Text>
         <Button
           leftIcon={<FiArrowDown />}
           onClick={() => {

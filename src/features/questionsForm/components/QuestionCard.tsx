@@ -7,6 +7,7 @@ import {
   CardHeader,
   Flex,
   Heading,
+  Text,
 } from "@chakra-ui/react";
 import { ToggleButton } from "../../../components/ToggleButton/ToggleButton";
 import { FiEyeOff } from "react-icons/fi";
@@ -42,7 +43,7 @@ export const QuestionCard = (props: ICardProps) => {
     <Card size="lg" mb="1.5rem" variant="centered">
       <CardHeader>
         <Badge>{`${questionNumber}/${questionsCount}`}</Badge>
-        <p className="category">{category.name.en}</p>
+        <Text textStyle="label">{category.name.en}</Text>
       </CardHeader>
       <CardBody>
         <Heading as="h2" variant="question">

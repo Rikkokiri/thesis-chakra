@@ -8,7 +8,6 @@ const baseStyle = defineStyle({
   _dark: {
     color: "brand.white",
   },
-  margin: 0,
 });
 
 const question = defineStyle({

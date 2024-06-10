@@ -7,6 +7,7 @@ import { buttonTheme } from "./components/button";
 import { cardTheme } from "./components/card";
 import { headingTheme } from "./components/heading";
 import { iconButtonTheme } from "./components/icon-button";
+import textStyles from "./textStyles";
 
 // 2. Add your color mode config
 const config: ThemeConfig = {
@@ -16,13 +17,15 @@ const config: ThemeConfig = {
 
 // 3. extend the theme
 const theme = extendTheme({
-  styles,
-  config,
+  config: config,
+  textStyles: textStyles,
   colors: {
     brand,
   },
+  styles: {
+    global: styles.global,
+  },
   // fonts: {},
-  // textStyles: {},
   components: {
     Badge: badgeTheme,
     Button: buttonTheme,

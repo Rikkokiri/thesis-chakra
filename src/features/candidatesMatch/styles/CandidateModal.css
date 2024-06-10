@@ -54,8 +54,3 @@
   justify-content: flex-start;
   padding-left: 18px;
 }
-
-.body-small.candidate-modal__number {
-  margin-top: 10px;
-  font-weight: 700;
-}

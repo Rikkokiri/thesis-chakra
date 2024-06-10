@@ -1,9 +1,9 @@
+import { Heading, Text } from "@chakra-ui/react";
 import { ButtonLink } from "@components/ButtonLink/ButtonLink";
 import "../styles/CandidateModal.css";
 import { Modal } from "@components/Modal/Modal";
 import { useTranslation } from "react-i18next";
 import { MatchWithDetails } from "../types";
-import { Heading } from "@chakra-ui/react";
 
 interface ICandidateModalProps {
   isOpen: boolean;
@@ -35,9 +35,9 @@ export const CandidateModal = ({
           <Heading as="h3" size="lg" lineHeight="1.5rem" fontWeight={700}>
             {name}
           </Heading>
-          <span className="candidate-modal__number body-small">
+          <Text as="span" textStyle="bodySmBold">
             {t("candidate.number")} {candidate.number}
-          </span>
+          </Text>
         </div>
       </div>
       <div className="candidate-modal__actions">
