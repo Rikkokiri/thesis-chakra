@@ -1,8 +1,9 @@
-import { getCandidateById } from "@data/api";
 import { useParams } from "react-router-dom";
+import { getCandidateById } from "@data/api";
 import { CandidateInfo, CandidateHeader } from "src/features/candidateInfo";
 import { CandidateAnswers } from "src/features/candidateAnswers";
 import { useEffect } from "react";
+import { PageSectionsCol } from "@/layout";
 
 export const CandidatePage = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,10 +18,10 @@ export const CandidatePage = () => {
   return (
     <>
       <CandidateHeader candidateId={candidate.id} />
-      <div className="page-sections__column mb-24">
+      <PageSectionsCol>
         <CandidateInfo candidateId={candidate.id} />
         <CandidateAnswers candidate={candidate} />
-      </div>
+      </PageSectionsCol>
     </>
   );
 };

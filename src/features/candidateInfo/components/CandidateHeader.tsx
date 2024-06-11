@@ -1,5 +1,6 @@
-import "../styles/CandidateHeader.css";
+import { ColumnCentered } from "@/layout";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
+import { Flex, Heading, Text, chakra } from "@chakra-ui/react";
 
 export const CandidateIntroHeader = (
   props: ReturnType<typeof useCandidateInfo>,
@@ -11,21 +12,36 @@ export const CandidateIntroHeader = (
   }
 
   return (
-    <div className="candidate-header">
+    <ColumnCentered bg="primaryBg" p={6} mb={12} textAlign="center" gap={4}>
       <div>
-        <p className="subtitle m-0">{t("electionName")}</p>
-        <h1 className="heading-1-large m-0">{candidate.name}</h1>
+        <Text textStyle="subtitle">{t("electionName")}</Text>
+        <Heading size="4xl">{candidate.name}</Heading>
       </div>
       {candidate.organization ||
         (candidate.creator && (
-          <p className="candidate-header__organization m-0">
+          <Text textStyle="label">
             {t("candidate.createdBy")}{" "}
             {candidate.organization || candidate.creator}
-          </p>
+          </Text>
         ))}
-      <div className="candidate-number">
+      <CandidateNumber>
         {t("candidate.number")} {candidate.number}
-      </div>
-    </div>
+      </CandidateNumber>
+    </ColumnCentered>
   );
 };
+
+const CandidateNumber = chakra(Flex, {
+  baseStyle: {
+    justifyContent: "center",
+    alignItems: "center",
+    my: 4,
+    mx: "auto",
+    textStyle: "labelXL",
+    borderRadius: "50%",
+    border: "1px solid",
+    borderColor: "text",
+    h: "7.75rem",
+    w: "7.75rem",
+  },
+});

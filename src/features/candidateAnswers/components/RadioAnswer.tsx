@@ -1,3 +1,4 @@
+import { Flex } from "@chakra-ui/react";
 import { DisplayRadioRange } from "./DisplayRadioRange";
 import { TFunction } from "i18next";
 
@@ -12,14 +13,20 @@ export const RadioAnswer = (props: IRadioAnswerProps) => {
   const { t, candidateAnswer, userAnswer, candidateImgSrc } = props;
 
   return (
-    <div className="row-centered answer__radio">
+    <Flex
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      w="100%"
+      pt="2"
+    >
       <DisplayRadioRange
         options={buildOptions(t, candidateAnswer, userAnswer, candidateImgSrc)}
         candidateAnswer={candidateAnswer}
         userAnswer={userAnswer}
         isReadonly
       />
-    </div>
+    </Flex>
   );
 };
 

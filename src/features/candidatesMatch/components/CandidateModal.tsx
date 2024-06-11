@@ -1,3 +1,4 @@
+import { Heading, Text } from "@chakra-ui/react";
 import { ButtonLink } from "@components/ButtonLink/ButtonLink";
 import "../styles/CandidateModal.css";
 import { Modal } from "@components/Modal/Modal";
@@ -31,10 +32,12 @@ export const CandidateModal = ({
           <span className="candidate-modal__score">{`${percentage}%`}</span>
         </div>
         <div className="candidate-modal__details-section">
-          <h3 className="candidate-modal__name">{name}</h3>
-          <span className="candidate-modal__number body-small">
+          <Heading as="h3" size="lg" lineHeight="1.5rem" fontWeight={700}>
+            {name}
+          </Heading>
+          <Text as="span" textStyle="bodySmBold">
             {t("candidate.number")} {candidate.number}
-          </span>
+          </Text>
         </div>
       </div>
       <div className="candidate-modal__actions">

@@ -1,4 +1,5 @@
-import { Button } from "@components/Button/Button";
+import { PageSectionsCol } from "@/layout";
+import { Button, Flex, Heading } from "@chakra-ui/react";
 import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
 import { useAnswerStore } from "@stores/answerStore";
 import { useTranslation } from "react-i18next";
@@ -18,17 +19,25 @@ export const FrontPage = () => {
 
   return (
     <>
-      <div className="page-header">
-        <h1 className="heading-1 mb-16">{t("frontPage.title")}</h1>
-        <Button iconAfter={<FiChevronRight />} onClick={startCompass}>
+      <Flex
+        direction="column"
+        padding={6}
+        align="center"
+        w="100%"
+        bg="primaryBg"
+      >
+        <Heading size="3xl" mb={4}>
+          {t("frontPage.title")}
+        </Heading>
+        <Button rightIcon={<FiChevronRight />} onClick={startCompass}>
           {t("frontPage.start")}
         </Button>
-      </div>
-      <div className="page-sections__column py-24">
+      </Flex>
+      <PageSectionsCol>
         <SectionCard title={t("candidates")}>
           <div></div>
         </SectionCard>
-      </div>
+      </PageSectionsCol>
     </>
   );
 };

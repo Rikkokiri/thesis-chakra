@@ -16,6 +16,13 @@ export const BackgroundDetailsGrid = (props: IBackgroundDetailsProps) => {
   const { t, candidate } = props;
   const { localize } = useLocalizedString();
 
+  /** TODO:
+   .body-bold {
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 700;
+  } */
+
   return (
     <InfoGrid>
       <InfoGridRow>

@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
-import "./QuestionsPage.css";
-import { Button } from "../components/Button/Button";
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { FiArrowDown } from "react-icons/fi";
 import { QuestionForm } from "../features/questionsForm";
 import { CandidatesMatch } from "src/features/candidatesMatch";
 import { getQuestionsTotalCount } from "@data/api";
 import { useRef } from "react";
+import { ColumnCentered } from "../layout";
 
 export const QuestionsPage = () => {
   const { t } = useTranslation();
@@ -19,17 +19,17 @@ export const QuestionsPage = () => {
   return (
     <>
       {inView && <CandidatesMatch />}
-      <section className="question-page__header">
-        <p className="subtitle m-0">{t("electionName")}</p>
-        <h1 className="heading-1 question-page__title">
+      <ColumnCentered as="section" py={8} bg="primaryBg" textAlign="center">
+        <Text textStyle="subtitle">{t("electionName")}</Text>
+        <Heading as="h1" size="3xl">
           {t("questionPage.findYourCandidate")}
-        </h1>
-        <p className="page-intro">{t("questionPage.description")}</p>
-
+        </Heading>
+        <Text m="1rem" mb="2rem" maxWidth="680px">
+          {t("questionPage.description")}
+        </Text>
         <Button
-          iconBefore={<FiArrowDown />}
+          leftIcon={<FiArrowDown />}
           onClick={() => {
-            console.log("Scroll to first question!");
             questionsStartRef.current?.scrollIntoView({
               behavior: "smooth",
             });
@@ -37,11 +37,11 @@ export const QuestionsPage = () => {
         >
           {t("questionPage.findYourCandidate")}
         </Button>
-        <div ref={questionsStartRef} />
-      </section>
-      <div className="question-page__content" ref={ref}>
+        <Box ref={questionsStartRef} />
+      </ColumnCentered>
+      <Flex direction="column" pt={6} align="center" ref={ref} w="100%">
         <QuestionForm />
-      </div>
+      </Flex>
     </>
   );
 };

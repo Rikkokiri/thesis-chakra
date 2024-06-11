@@ -1,29 +1,29 @@
-@import "./colors.css";
 @import "./variables.css";
-@import "./reset.css";
-@import "./typography.css";
-@import "./layout.css";
-@import "./utils.css";
+@import "./colors.css";
+
+/* @import "./reset.css"; */
+
+/*
 @import "./themes/light-theme.css";
 @import "./themes/dark-theme.css";
+*/
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* TODO: Update font family */
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* TODO: Delete once included in the theme definition */
+  --toolbar-height: 72px;
+  --border-radius-sm: 4px;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-size: 16px; /* 14px in Yle's styles */
-  color: var(--text-primary);
   height: 100vh;
-  background-color: var(--bg-primary);
 }
 
 a,
@@ -43,39 +43,9 @@ a:hover {
   height: calc(100% - var(--toolbar-height));
 }
 
-main {
+#app-main {
   display: flex;
   flex-direction: column;
   place-items: center flex-start;
   flex: 1 0 auto;
-}
-
-#app-footer {
-  background-color: var(--footer-bg);
-  width: 100%;
-  padding: 21px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 4px 16px;
-  font-size: 14px;
-}
-
-.footer-links a {
-  padding: 12px 24px;
-  font-weight: 700;
-}
-
-.page-header {
-  padding: 24px;
-  text-align: center;
-  background-color: var(--page-header-bg);
-  width: 100%;
 }

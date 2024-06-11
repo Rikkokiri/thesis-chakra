@@ -1,8 +1,9 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Toolbar } from "./components/Toolbar/Toolbar";
 import { useDetectTheme } from "@hooks/useDetectTheme";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { AppFooter } from "./layout/footer";
 
 function App() {
   const { prefersDarkMode, setActiveTheme } = useDetectTheme();
@@ -16,19 +17,10 @@ function App() {
     <>
       <Toolbar />
       <div id="main-wrapper">
-        <main>
+        <main id="app-main">
           <Outlet />
         </main>
-        <footer id="app-footer">
-          <div className="footer-links">
-            <Link to="/">{t("footer.frontPageLink")}</Link>
-            <a href="https://vaalit.yle.fi/vaalikone/presidentinvaali2024">
-              Ylen vaalikone presidentivaaleissa 2024
-            </a>
-            {/* TODO: Link to source code */}
-          </div>
-          {/* TODO: Language menu */}
-        </footer>
+        <AppFooter t={t} />
       </div>
     </>
   );
