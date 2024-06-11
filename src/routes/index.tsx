@@ -1,5 +1,8 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
-import App, { Homepage, QuestionsPage } from "../App";
+import App from "../App";
+import { FrontPage } from "../pages/FrontPage";
+import { QuestionsPage } from "../pages/QuestionsPage";
+import { CandidatePage } from "src/pages/CandidatePage";
 
 export enum Route {
   ROOT = "/",
@@ -15,11 +18,15 @@ const routes: RouteObject[] = [
     children: [
       {
         path: Route.ROOT,
-        element: <Homepage />,
+        element: <FrontPage />,
       },
       {
         path: Route.QUESTIONS,
         element: <QuestionsPage />,
+      },
+      {
+        path: Route.CANDIDATE,
+        element: <CandidatePage />,
       },
     ],
   },

@@ -1,0 +1,39 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.configPath": ".prettierrc",
+  "cSpell.words": [
+    "Avenir",
+    "CHAKRA",
+    "mantine",
+    "optimizelegibility",
+    "shadcn",
+    "stylelint",
+    "untoggled",
+    "zustand"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#3dbdbb",
+    "activityBar.background": "#3dbdbb",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#a736a9",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#3dbdbb",
+    "statusBar.background": "#319795",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#3dbdbb",
+    "statusBarItem.remoteBackground": "#319795",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#319795",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#31979599",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#319795",
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

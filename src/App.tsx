@@ -1,28 +1,28 @@
 import { Outlet } from "react-router-dom";
-import "./App.css";
+import { Toolbar } from "./components/Toolbar/Toolbar";
+import { useDetectTheme } from "@hooks/useDetectTheme";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Toolbar } from "./components/Toolbar";
-
-export const Homepage = () => {
-  return <div>Homepage</div>;
-};
-
-export const QuestionsPage = () => {
-  return <div>Questions Page</div>;
-};
+import { AppFooter } from "./layout/footer";
 
 function App() {
+  const { prefersDarkMode, setActiveTheme } = useDetectTheme();
   const { t } = useTranslation();
 
+  useEffect(() => {
+    setActiveTheme(prefersDarkMode);
+  }, [prefersDarkMode, setActiveTheme]);
+
   return (
-    <div>
+    <>
       <Toolbar />
-      <main>
-        <h1>{t("appName")}</h1>
-        <Outlet />
-      </main>
-      <footer></footer>
-    </div>
+      <div id="main-wrapper">
+        <main id="app-main">
+          <Outlet />
+        </main>
+        <AppFooter t={t} />
+      </div>
+    </>
   );
 }
 

@@ -6,28 +6,62 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "test": "vitest run",
+    "test:w": "vitest",
+    "cy:open": "cypress open",
+    "e2e:chrome": "cypress run --browser chrome",
+    "cy:screenshots": "cypress run --browser chrome --spec cypress/e2e/screenshot-tests/*",
+    "lint": "eslint \"./**/*.{ts,tsx,js,jsx}\"",
+    "lint:fix": "eslint \"./**/*.{ts,tsx,js,jsx}\" --fix",
+    "preview": "vite preview",
+    "prettify": "prettier --write \"./**/*.{ts,tsx,js,jsx,css}\"",
+    "prepare": "husky",
+    "pre-commit": "lint-staged --concurrent false",
+    "stylelint": "stylelint \"src/**/*.css\""
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@types/react": "^18.3.3",
+    "framer-motion": "^11.2.10",
     "i18next": "^23.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.1.0",
-    "react-icons": "^5.1.0",
+    "react-icons": "^5.2.1",
+    "react-intersection-observer": "^9.10.2",
     "react-router-dom": "^6.22.3",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@types/react": "^18.2.66",
+    "@eslint/js": "^9.2.0",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "cypress": "^13.10.0",
+    "cypress-visual-regression": "5.0.0",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "globals": "^15.2.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "prettier": "^3.2.5",
+    "stylelint": "^16.6.0",
+    "stylelint-config-standard": "^36.0.0",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.8.0",
+    "vite": "^5.2.0",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^1.6.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,css}": "prettier --write",
+    "*.{ts,tsx,js,jsx}": "eslint",
+    "*.{css}": "stylelint"
   }
 }

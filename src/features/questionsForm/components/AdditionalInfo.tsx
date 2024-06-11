@@ -1,0 +1,46 @@
+import { FiInfo } from "react-icons/fi";
+import { Heading, Text } from "@chakra-ui/react";
+import { LocalizedString } from "@data/types";
+import { Modal } from "@components/Modal/Modal";
+import { TFunction } from "i18next";
+import { ToggleButton } from "@components/ToggleButton/ToggleButton";
+import { useLocalizedString } from "@hooks/useLocalizedString";
+import { useState } from "react";
+
+interface IAdditionalInfoProps {
+  t: TFunction;
+  info: LocalizedString;
+}
+
+export const AdditionalInfo = (props: IAdditionalInfoProps) => {
+  const { t, info } = props;
+  const { localize } = useLocalizedString();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <>
+      <ToggleButton
+        isToggled={isModalOpen}
+        onClick={() => setIsModalOpen(true)}
+        untoggledIcon={<FiInfo />}
+        toggledIcon={<FiInfo />}
+        variant="ghost"
+        size="small"
+        toggledClassName=""
+      >
+        {t("question.whatAbout")}
+      </ToggleButton>
+      <Modal
+        isOpen={isModalOpen}
+        closeModal={() => {
+          setIsModalOpen(false);
+        }}
+      >
+        <Heading size="lg" pb={2}>
+          {t("question.whatAbout")}
+        </Heading>
+        <Text textStyle="bodySm">{localize(info)}</Text>
+      </Modal>
+    </>
+  );
+};

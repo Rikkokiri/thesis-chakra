@@ -1,0 +1,51 @@
+@import "./variables.css";
+@import "./colors.css";
+
+/* @import "./reset.css"; */
+
+/*
+@import "./themes/light-theme.css";
+@import "./themes/dark-theme.css";
+*/
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* TODO: Delete once included in the theme definition */
+  --toolbar-height: 72px;
+  --border-radius-sm: 4px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+a,
+a:visited,
+a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+
+#root {
+  height: 100%;
+}
+
+#main-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - var(--toolbar-height));
+}
+
+#app-main {
+  display: flex;
+  flex-direction: column;
+  place-items: center flex-start;
+  flex: 1 0 auto;
+}
