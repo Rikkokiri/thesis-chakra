@@ -11,8 +11,12 @@ export const styles = {
       bg: mode("brand.gray10", "brand.black")(props),
       color: mode("brand.blueBlack", "brand.gray5")(props),
     },
-    /* header: {
-      bg: mode("brand.white", "brand.blueBlack")(props),
-    }, */
+    // Tis applies to all footer elements in the app
+    footer: {
+      bg: mode("brand.gray5", "brand.gray90")(props),
+    },
+    a: {
+      textDecoration: "underline",
+    },
   }),
 };

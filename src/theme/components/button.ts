@@ -5,7 +5,7 @@ const baseStyle = {
   lineHeight: 1.5,
   padding: ".25rem 1.5rem",
   borderRadius: "100px", // TODO: Use rem
-  gap: 2,
+  width: "fit-content",
 };
 
 const solid = defineStyle({
@@ -27,6 +27,14 @@ export const buttonTheme = defineStyleConfig({
   baseStyle,
   defaultProps: {
     variant: "solid",
+  },
+  sizes: {
+    // Default size for button
+    md: {
+      height: 12,
+      py: 1,
+      px: 4,
+    },
   },
   variants: { solid, outline, ghost, toggledGhost },
 });

@@ -51,13 +51,10 @@ const theme = extendTheme({
         default: "brand.gray10",
         _dark: "brand.black",
       },
-      compBackground: {
+      // Default background for most components
+      primaryBg: {
         _light: "brand.white",
         _dark: "brand.blueBlack",
-      },
-      footer: {
-        default: "brand.gray5",
-        _dark: "brand.gray90",
       },
     },
   },

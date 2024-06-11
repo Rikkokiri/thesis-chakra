@@ -34,5 +34,6 @@
   "peacock.color": "#319795",
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import { Flex } from "@chakra-ui/react";
 import { getCandidateById } from "@data/api";
 import { CandidateInfo, CandidateHeader } from "src/features/candidateInfo";
 import { CandidateAnswers } from "src/features/candidateAnswers";
 import { useEffect } from "react";
+import { PageSectionsCol } from "@/layout";
 
 export const CandidatePage = () => {
   const { id } = useParams<{ id: string }>();
@@ -18,10 +18,10 @@ export const CandidatePage = () => {
   return (
     <>
       <CandidateHeader candidateId={candidate.id} />
-      <Flex direction="column" gap="6" maxW="680px" mb="6">
+      <PageSectionsCol>
         <CandidateInfo candidateId={candidate.id} />
         <CandidateAnswers candidate={candidate} />
-      </Flex>
+      </PageSectionsCol>
     </>
   );
 };

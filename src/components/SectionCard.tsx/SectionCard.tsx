@@ -11,7 +11,7 @@ export const SectionCard = (props: SectionCardProps) => {
   return (
     <section className="section-card">
       <div className="section-card__header">
-        <Heading size="xl" as="h2">
+        <Heading size="xl" as="h2" fontWeight={900}>
           {props.title}
         </Heading>
       </div>

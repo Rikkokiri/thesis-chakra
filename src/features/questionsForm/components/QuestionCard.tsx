@@ -1,4 +1,3 @@
-import "../styles/QuestionCard.css"; // TODO: Get rid of style file (define text styles)
 import { useTranslation } from "react-i18next";
 import {
   Badge,

@@ -1,7 +1,31 @@
-import { Flex, FlexProps } from "@chakra-ui/react";
+import { chakra, Flex, FlexProps } from "@chakra-ui/react";
 
-export const RowCentered = (props: FlexProps) => {
+export const RowCentered = chakra(Flex, {
+  baseStyle: {
+    flexDir: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    w: "100%",
+  },
+});
+
+export const ColumnCentered = (props: FlexProps) => {
   return (
-    <Flex alignItems="center" justifyContent="center" w="100%" {...props} />
+    <Flex
+      flexDir="column"
+      justifyContent="center"
+      alignItems="center"
+      w="100%"
+      {...props}
+    />
   );
 };
+
+export const PageSectionsCol = chakra(Flex, {
+  baseStyle: {
+    flexDir: "column",
+    w: "100%",
+    maxWidth: "680px",
+    gap: 6,
+  },
+});

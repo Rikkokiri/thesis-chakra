@@ -31,6 +31,7 @@ export const headingTheme = defineStyleConfig({
     // .heading-1-large
     "4xl": {
       fontSize: "2rem", // 32px
+      lineHeight: 1.2,
     },
     // .heading-1
     "3xl": {

@@ -1,27 +1,34 @@
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
-import { Button, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import "./QuestionsPage.css";
 import { FiArrowDown } from "react-icons/fi";
 import { QuestionForm } from "../features/questionsForm";
 import { CandidatesMatch } from "src/features/candidatesMatch";
 import { getQuestionsTotalCount } from "@data/api";
 import { useRef } from "react";
+import { ColumnCentered } from "../layout";
 
 export const QuestionsPage = () => {
   const { t } = useTranslation();
   const questionsTotalCount = getQuestionsTotalCount();
   // TODO: Chakra-UI - Fix revealing of CandidatesMatch component on scroll
-  const { ref /*, inView */ } = useInView({
+  const { ref, inView } = useInView({
     threshold: (1 / questionsTotalCount) * 1.5, // Reveal when half of second card is in view
   });
   const questionsStartRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <>
-      {/* inView && <CandidatesMatch />*/}
+      {inView && <CandidatesMatch />}
       <CandidatesMatch />
-      <section className="question-page__header">
+      <ColumnCentered
+        as="section"
+        py={8}
+        // className="question-page__header"
+        bg="primaryBg"
+        textAlign="center"
+      >
         <Text textStyle="subtitle">{t("electionName")}</Text>
         <Heading as="h1" size="3xl" /* className="heading-1 pageheader_title"*/>
           {t("questionPage.findYourCandidate")}
@@ -39,11 +46,11 @@ export const QuestionsPage = () => {
         >
           {t("questionPage.findYourCandidate")}
         </Button>
-        <div ref={questionsStartRef} />
-      </section>
-      <div className="question-page__content" ref={ref}>
+        <Box ref={questionsStartRef} />
+      </ColumnCentered>
+      <Flex direction="column" pt={6} align="center" ref={ref} w="100%">
         <QuestionForm />
-      </div>
+      </Flex>
     </>
   );
 };
