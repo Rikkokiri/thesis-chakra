@@ -1,4 +1,3 @@
-import "@components/PageHeader/PageHeader.css";
 import { Button, Flex, Heading } from "@chakra-ui/react";
 import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
 import { useAnswerStore } from "@stores/answerStore";
