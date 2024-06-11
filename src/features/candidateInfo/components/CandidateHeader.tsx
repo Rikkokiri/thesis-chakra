@@ -1,5 +1,6 @@
+import { ColumnCentered } from "@/layout";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text, chakra } from "@chakra-ui/react";
 
 export const CandidateIntroHeader = (
   props: ReturnType<typeof useCandidateInfo>,
@@ -11,14 +12,7 @@ export const CandidateIntroHeader = (
   }
 
   return (
-    <Flex
-      // TODO: background-color: var(--card-bg);
-      direction="column"
-      p={6}
-      mb={12}
-      textAlign="center"
-      gap={4}
-    >
+    <ColumnCentered bg="primaryBg" p={6} mb={12} textAlign="center" gap={4}>
       <div>
         <Text textStyle="subtitle">{t("electionName")}</Text>
         <Heading size="4xl">{candidate.name}</Heading>
@@ -30,19 +24,24 @@ export const CandidateIntroHeader = (
             {candidate.organization || candidate.creator}
           </Text>
         ))}
-      <Flex
-        justifyContent="center"
-        alignItems="center"
-        my={4}
-        mx="auto"
-        textStyle="labelXL"
-        borderRadius={"50%"}
-        border="1px solid black" // TODO: Update color to primary
-        h={"7.75rem"}
-        w={"7.75rem"}
-      >
+      <CandidateNumber>
         {t("candidate.number")} {candidate.number}
-      </Flex>
-    </Flex>
+      </CandidateNumber>
+    </ColumnCentered>
   );
 };
+
+const CandidateNumber = chakra(Flex, {
+  baseStyle: {
+    justifyContent: "center",
+    alignItems: "center",
+    my: 4,
+    mx: "auto",
+    textStyle: "labelXL",
+    borderRadius: "50%",
+    border: "1px solid",
+    borderColor: "text",
+    h: "7.75rem",
+    w: "7.75rem",
+  },
+});
