@@ -13,24 +13,3 @@ dialog.modal {
   max-width: var(--modal-max-width);
   overflow-y: auto;
 }
-
-dialog.modal::backdrop {
-  background-color: var(--modal-backdrop);
-}
-
-.modal__content {
-  margin: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-grow: 1;
-  height: 100%;
-}
-
-.modal__close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  border-radius: var(--border-radius-sm);
-  margin-left: 4px;
-}

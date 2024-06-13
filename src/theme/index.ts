@@ -8,6 +8,7 @@ import { cardTheme } from "./components/card";
 import { dividerTheme } from "./components/divider";
 import { headingTheme } from "./components/heading";
 import { iconButtonTheme } from "./components/icon-button";
+import { modalTheme } from "./components/modal";
 import textStyles from "./textStyles";
 
 // 2. Add your color mode config
@@ -34,6 +35,7 @@ const theme = extendTheme({
     Divider: dividerTheme,
     Heading: headingTheme,
     IconButton: iconButtonTheme,
+    Modal: modalTheme,
   },
   semanticTokens: {
     colors: {
