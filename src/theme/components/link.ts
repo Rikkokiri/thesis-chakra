@@ -1,15 +1,12 @@
 import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
 import { brand } from "../colors";
 
-const buttonLink = defineStyle({
+const buttonLinkBase = defineStyle({
   fontWeight: 700,
   lineHeight: 1.5,
   padding: ".25rem 1.5rem",
   borderRadius: "100px", // TODO: Use rem
   width: "fit-content",
-  _hover: {
-    textDecoration: "none",
-  },
   // Remove browser's default focus styles
   _focus: {
     outline: "none",
@@ -27,12 +24,13 @@ const buttonLink = defineStyle({
 });
 
 const outlineButtonLink = defineStyle({
-  ...buttonLink,
+  ...buttonLinkBase,
   bg: "transparent",
   border: "2px solid",
   borderColor: "var(--primary)",
   color: "var(--primary)",
   _hover: {
+    textDecoration: "none",
     bg: brand.black9,
     _dark: {
       bg: brand.white17,

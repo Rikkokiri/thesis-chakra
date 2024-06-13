@@ -1,14 +1,17 @@
 import {
   Heading,
+  Image,
   Link as ChakraLink,
   Modal,
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
   Text,
+  Flex,
+  Box,
+  ModalBody,
 } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
-import "../styles/CandidateModal.css";
 import { useTranslation } from "react-i18next";
 import { MatchWithDetails } from "../types";
 import { ColumnCentered } from "@/layout";
@@ -32,25 +35,45 @@ export const CandidateModal = ({
       <ModalOverlay>
         <ModalContent>
           <ModalCloseButton />
-          <div className="candidate-modal__body">
-            <div className="candidate-modal__img-wrapper">
-              <img src={logoSrc} aria-hidden className="candidate-modal__img" />
-              <div
-                className="candidate-modal__score-visual"
+          <Flex w="100%">
+            <Flex
+              direction="column"
+              justifyContent="flex-start"
+              w="fit-content"
+            >
+              <Image
+                src={logoSrc}
+                aria-hidden
+                w="64px"
+                height="85px"
+                p={1}
+                bg="brand.gray10"
+                borderRadius="4px"
+              />
+              <Box
+                h={1}
+                borderRadius="19px"
+                mt={1}
+                bg={"brand.gray10"}
+                mr="auto"
                 aria-hidden
                 style={{ width: `${percentage}%`, backgroundColor: brandColor }}
               />
-              <span className="candidate-modal__score">{`${percentage}%`}</span>
-            </div>
-            <div className="candidate-modal__details-section">
+              <Text
+                textStyle="bodySmBold"
+                mt={1}
+                textAlign="center"
+              >{`${percentage}%`}</Text>
+            </Flex>
+            <ModalBody pl="1.125rem">
               <Heading as="h3" size="lg" lineHeight="1.5rem" fontWeight={700}>
                 {name}
               </Heading>
               <Text as="span" textStyle="bodySmBold">
                 {t("candidate.number")} {candidate.number}
               </Text>
-            </div>
-          </div>
+            </ModalBody>
+          </Flex>
           <ColumnCentered pt={8}>
             <ChakraLink
               as={ReactRouterLink}
