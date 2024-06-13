@@ -3,6 +3,7 @@ import {
   Badge,
   Card,
   CardBody,
+  CardFooter,
   CardHeader,
   Flex,
   Heading,
@@ -39,7 +40,7 @@ export const QuestionCard = (props: ICardProps) => {
   const questionNumber = category.position + question.position + 1;
 
   return (
-    <Card size="lg" mb="1.5rem" variant="bigCentered">
+    <Card size="lg" mb="1.5rem" py="5rem" variant="bigCentered">
       <CardHeader>
         <Badge>{`${questionNumber}/${questionsCount}`}</Badge>
         <Text textStyle="label">{category.name.en}</Text>
@@ -48,26 +49,24 @@ export const QuestionCard = (props: ICardProps) => {
         <Heading as="h2" variant="question">
           {question.question.en}
         </Heading>
-        <Flex
-          alignItems="center"
-          justifyContent="center"
-          mt="6px"
-          mb="1.125rem"
-        >
+        <Flex alignItems="center" justifyContent="center" mt="1.625rem">
           {question.additionalInfo && (
             <AdditionalInfo t={t} info={question.additionalInfo} />
           )}
           <ToggleButton
             onClick={() => toggleQuestionHiding(question.id)}
             isToggled={!!answer?.hideQuestion}
-            untoggledIcon={<FiEyeOff size="1rem" />}
-            toggledIcon={<FiEyeOff size="1rem" />}
+            untoggledIcon={<FiEyeOff size="1.25rem" />}
+            toggledIcon={<FiEyeOff size="1.25rem" />}
             variant="ghost"
+            toggledVariant="toggledGhost"
             size="sm"
           >
             {t("question.hide")}
           </ToggleButton>
         </Flex>
+      </CardBody>
+      <CardFooter>
         {question.questionType === "yes-no" ? (
           <YesNoQuestion
             answerQuestion={answerQuestion}
@@ -83,7 +82,7 @@ export const QuestionCard = (props: ICardProps) => {
             value={answer?.answer ?? null}
           />
         )}
-      </CardBody>
+      </CardFooter>
     </Card>
   );
 };

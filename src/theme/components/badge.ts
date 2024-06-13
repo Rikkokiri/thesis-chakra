@@ -1,4 +1,5 @@
 import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
+import { brand } from "../colors";
 
 const baseStyle = {
   fontWeight: 800,
@@ -8,24 +9,33 @@ const baseStyle = {
   lineHeight: "23px",
   minH: "23px",
   borderRadius: "0.25rem",
-  bg: "brand.blueBlack",
-  color: "brand.white",
+  bg: brand.blueBlack,
+  color: brand.white,
   _dark: {
-    bg: "brand.gray5",
-    color: "brand.blueBlack",
+    bg: brand.gray5,
+    color: brand.blueBlack,
   },
 };
 
 const negative = defineStyle({
-  color: "brand.black",
-  bg: "brand.gray5",
+  color: brand.black,
+  bg: brand.gray5,
   _dark: {
-    bg: "brand.gray5",
-    color: "brand.black",
+    bg: brand.gray5,
+    color: brand.black,
   },
+});
+
+const rounded = defineStyle({
+  h: 6,
+  w: 6,
+  fontSize: "0.75rem",
+  borderRadius: "50%",
+  lineHeight: 6,
+  textAlign: "center",
 });
 
 export const badgeTheme = defineStyleConfig({
   baseStyle,
-  variants: { negative },
+  variants: { negative, rounded },
 });

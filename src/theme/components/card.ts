@@ -8,6 +8,8 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const baseStyle = definePartsStyle({
   // define the part you're going to style
   container: {
+    color: "text",
+    maxW: "var(--card-max-width)",
     borderRadius: "4px",
     backgroundColor: brand.white,
     _dark: {
@@ -16,18 +18,12 @@ const baseStyle = definePartsStyle({
   },
   header: {
     padding: 0,
-    paddingBottom: "2px",
-  },
-  body: {},
-  footer: {
-    paddingTop: "2px",
   },
 });
 
 const bigCentered = definePartsStyle({
   container: {
-    py: "5rem",
-    px: "1.5rem",
+    p: "1.5rem",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -36,6 +32,16 @@ const bigCentered = definePartsStyle({
     display: "flex",
     gap: "1.5rem",
     alignItems: "center",
+  },
+  body: {
+    p: 0,
+    maxW: "var(--card-content-max-width)",
+    mt: "1.25rem",
+    mb: "1.125rem",
+  },
+  footer: {
+    p: 0,
+    w: "100%",
   },
 });
 
@@ -48,7 +54,7 @@ const section = definePartsStyle({
     px: 6,
     pt: "21px",
     pb: 4,
-    borderBottomWidth: "1px",
+    borderBottomWidth: "2px",
     borderBottomColor: brand.gray20,
     borderBottomStyle: "solid",
     _dark: {

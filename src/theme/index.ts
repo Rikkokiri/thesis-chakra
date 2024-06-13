@@ -5,6 +5,7 @@ import { styles } from "./globalStyles";
 import { badgeTheme } from "./components/badge";
 import { buttonTheme } from "./components/button";
 import { cardTheme } from "./components/card";
+import { dividerTheme } from "./components/divider";
 import { headingTheme } from "./components/heading";
 import { iconButtonTheme } from "./components/icon-button";
 import textStyles from "./textStyles";
@@ -30,6 +31,7 @@ const theme = extendTheme({
     Badge: badgeTheme,
     Button: buttonTheme,
     Card: cardTheme,
+    Divider: dividerTheme,
     Heading: headingTheme,
     IconButton: iconButtonTheme,
   },

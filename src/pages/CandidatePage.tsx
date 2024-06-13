@@ -18,7 +18,7 @@ export const CandidatePage = () => {
   return (
     <>
       <CandidateHeader candidateId={candidate.id} />
-      <PageSectionsCol>
+      <PageSectionsCol mb={6}>
         <CandidateInfo candidateId={candidate.id} />
         <CandidateAnswers candidate={candidate} />
       </PageSectionsCol>

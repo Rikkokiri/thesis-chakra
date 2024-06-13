@@ -4,16 +4,16 @@ import { TFunction } from "i18next";
 
 export const AppFooter = ({ t }: { t: TFunction }) => {
   return (
-    <Flex as="footer" /* id="app-footer"*/>
+    <Flex as="footer" py="21px" px="0">
       <Flex
-        py="21px"
-        px="0"
         align="center"
         justifyContent="center"
         w="100%"
         fontSize="sm"
+        py={1}
+        px={4}
         sx={{
-          a: { py: 3, px: 8, fontWeight: 700 },
+          a: { py: 3, px: 6, fontWeight: 700 },
         }}
       >
         <Link to="/">{t("footer.frontPageLink")}</Link>

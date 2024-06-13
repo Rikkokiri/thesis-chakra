@@ -14,12 +14,6 @@
   outline: none;
 }
 
-/* TODO: Define as base style? */
-.button:focus-visible {
-  outline: 2px solid var(--focus-outline-primary);
-  outline-offset: 2px;
-}
-
 .button .icon.icon-20 {
   height: 20px;
   width: 20px;
@@ -54,15 +48,6 @@
   line-height: 18px;
   height: 32px;
   padding: 6px 12px 6px 14px;
-}
-
-.button--small .icon {
-  height: 1rem;
-  width: 1rem;
-}
-
-.button--icon-only {
-  padding: 0;
 }
 
 /**
