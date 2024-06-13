@@ -1,5 +1,6 @@
 import { cardAnatomy } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
+import { brand } from "../colors";
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(cardAnatomy.keys);
@@ -10,9 +11,9 @@ const baseStyle = definePartsStyle({
     borderRadius: "4px",
     py: "5rem",
     px: "1.5rem",
-    bg: "brand.white",
+    backgroundColor: brand.white,
     _dark: {
-      bg: "brand.blueBlack",
+      backgroundColor: brand.blueBlack,
     },
   },
   header: {
@@ -38,6 +39,27 @@ const centered = definePartsStyle({
   },
 });
 
+/* Section card with simple header */
+const section = definePartsStyle({
+  container: {
+    p: 0,
+  },
+  header: {
+    px: 6,
+    pt: "21px",
+    pb: 4,
+    borderBottomWidth: "1px",
+    borderBottomColor: brand.gray20,
+    borderBottomStyle: "solid",
+    _dark: {
+      borderBottomColor: brand.gray60,
+    },
+  },
+  body: {
+    p: 6,
+  },
+});
+
 const sizes = {
   lg: definePartsStyle({
     container: {
@@ -50,5 +72,5 @@ const sizes = {
 export const cardTheme = defineMultiStyleConfig({
   sizes,
   baseStyle,
-  variants: { centered },
+  variants: { centered, section },
 });

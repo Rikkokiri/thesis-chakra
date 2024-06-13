@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-import "./SectionCard.css";
-import { Heading } from "@chakra-ui/react";
+import { Card, CardBody, CardHeader, Heading } from "@chakra-ui/react";
 
 interface SectionCardProps {
   title: string;
@@ -9,13 +8,13 @@ interface SectionCardProps {
 
 export const SectionCard = (props: SectionCardProps) => {
   return (
-    <section className="section-card">
-      <div className="section-card__header">
+    <Card variant="section">
+      <CardHeader>
         <Heading size="xl" as="h2" fontWeight={900}>
           {props.title}
         </Heading>
-      </div>
-      <div className="section-card__content">{props.children}</div>
-    </section>
+      </CardHeader>
+      <CardBody>{props.children}</CardBody>
+    </Card>
   );
 };
