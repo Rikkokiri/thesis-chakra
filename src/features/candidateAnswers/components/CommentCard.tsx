@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import "../styles/CommentCard.css";
 import { QuestionType, YesNoAnswer } from "@data/types";
+import { Box, Card, CardBody, CardHeader } from "@chakra-ui/react";
 
 interface ICommentCardProps {
   header: ReactNode;
@@ -12,6 +12,25 @@ interface ICommentCardProps {
 export const CommentCard = (props: ICommentCardProps) => {
   const { header, body, answer, questionType } = props;
 
+  return (
+    <Card
+      variant="comment"
+      position="relative"
+      mb={0}
+      mx={2.5}
+      mt={questionType === QuestionType.AGREE_SCALE ? 7 : 3}
+    >
+      <CommentCardArrow answer={answer} questionType={questionType} />
+      <CardHeader>{header}</CardHeader>
+      <CardBody>{body}</CardBody>
+    </Card>
+  );
+};
+
+const CommentCardArrow = ({
+  answer,
+  questionType,
+}: Pick<ICommentCardProps, "answer" | "questionType">) => {
   const arrowPosition = (
     answer: number | undefined,
     questionType: QuestionType,
@@ -24,18 +43,16 @@ export const CommentCard = (props: ICommentCardProps) => {
   };
 
   return (
-    <div
-      className={`comment-card answer-${questionType === QuestionType.AGREE_SCALE && "scale"}`}
-    >
-      <div
-        className="comment-card__arrow"
-        style={{
-          left: `${arrowPosition(answer, questionType)}%`,
-          display: answer === undefined ? "none" : "inherit",
-        }}
-      ></div>
-      <div className="comment-card__header">{header}</div>
-      <div className="comment-card__body">{body}</div>
-    </div>
+    <Box
+      className="comment-card__arrow"
+      position="absolute"
+      left={`${arrowPosition(answer, questionType)}%`}
+      display={answer === undefined ? "none" : "inherit"}
+      top="-6px"
+      width={4}
+      height={4}
+      transform="rotate(45deg)"
+      bg="inherit"
+    />
   );
 };

@@ -39,7 +39,7 @@ export const QuestionCard = (props: ICardProps) => {
   const questionNumber = category.position + question.position + 1;
 
   return (
-    <Card size="lg" mb="1.5rem" variant="centered">
+    <Card size="lg" mb="1.5rem" variant="bigCentered">
       <CardHeader>
         <Badge>{`${questionNumber}/${questionsCount}`}</Badge>
         <Text textStyle="label">{category.name.en}</Text>
@@ -60,10 +60,10 @@ export const QuestionCard = (props: ICardProps) => {
           <ToggleButton
             onClick={() => toggleQuestionHiding(question.id)}
             isToggled={!!answer?.hideQuestion}
-            untoggledIcon={<FiEyeOff />}
-            toggledIcon={<FiEyeOff />}
+            untoggledIcon={<FiEyeOff size="1rem" />}
+            toggledIcon={<FiEyeOff size="1rem" />}
             variant="ghost"
-            size="small"
+            size="sm"
           >
             {t("question.hide")}
           </ToggleButton>

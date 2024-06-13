@@ -9,8 +9,6 @@ const baseStyle = definePartsStyle({
   // define the part you're going to style
   container: {
     borderRadius: "4px",
-    py: "5rem",
-    px: "1.5rem",
     backgroundColor: brand.white,
     _dark: {
       backgroundColor: brand.blueBlack,
@@ -26,8 +24,10 @@ const baseStyle = definePartsStyle({
   },
 });
 
-const centered = definePartsStyle({
+const bigCentered = definePartsStyle({
   container: {
+    py: "5rem",
+    px: "1.5rem",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -55,8 +55,28 @@ const section = definePartsStyle({
       borderBottomColor: brand.gray60,
     },
   },
+});
+
+const comment = definePartsStyle({
+  container: {
+    maxW: "var(--comment-max-width)",
+    w: "100%",
+    backgroundColor: brand.gray20,
+    _dark: {
+      backgroundColor: brand.gray90,
+    },
+    pt: 2,
+    px: 4,
+    pb: 5,
+    fontSize: "sm",
+    gap: 5,
+  },
+  header: {
+    fontWeight: 700,
+    p: 0,
+  },
   body: {
-    p: 6,
+    p: 0,
   },
 });
 
@@ -72,5 +92,5 @@ const sizes = {
 export const cardTheme = defineMultiStyleConfig({
   sizes,
   baseStyle,
-  variants: { centered, section },
+  variants: { bigCentered, section, comment },
 });
