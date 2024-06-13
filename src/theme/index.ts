@@ -42,25 +42,33 @@ const theme = extendTheme({
   semanticTokens: {
     colors: {
       primary: {
-        default: "brand.blueBlack",
-        _dark: "brand.gray5",
+        default: brand.blueBlack,
+        _dark: brand.gray5,
       },
       text: {
-        default: "brand.blueBlack",
-        _dark: "brand.gray5",
+        default: brand.blueBlack,
+        _dark: brand.gray5,
       },
       textNegative: {
-        default: "brand.white",
-        _dark: "brand.blueBlack",
+        default: brand.white,
+        _dark: brand.blueBlack,
       },
       bodyBg: {
-        default: "brand.gray10",
-        _dark: "brand.black",
+        default: brand.gray10,
+        _dark: brand.black,
       },
       // Default background for most components
       primaryBg: {
-        _light: "brand.white",
-        _dark: "brand.blueBlack",
+        default: brand.white,
+        _dark: brand.blueBlack,
+      },
+      agree: {
+        default: brand.success,
+        _dark: brand.greenBright,
+      },
+      disagree: {
+        default: brand.error,
+        _dark: brand.liveRed,
       },
     },
   },

@@ -1,24 +1,51 @@
 import { ReactNode } from "react";
-import "../styles/SmallSpeechBubble.css";
 import { QuestionType } from "@data/types";
 import { doesAgree } from "@data/data-utils";
+import {
+  Box,
+  Flex,
+  FlexProps,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 interface ISpeechBubbleProps {
   content: ReactNode;
   answer: number;
   questionType: QuestionType;
-  className?: string;
 }
 
-export const SmallSpeechBubble = (props: ISpeechBubbleProps) => {
-  const agreeingAnswer = doesAgree(props.answer, props.questionType);
+export const SmallSpeechBubble = ({
+  content,
+  answer,
+  questionType,
+  ...props
+}: ISpeechBubbleProps & FlexProps) => {
+  const agreeingAnswer = doesAgree(answer, questionType);
+  const textColor = useColorModeValue("brand.gray5", "brand.blueBlack");
 
   return (
-    <div
-      className={`speech-bubble ${agreeingAnswer ? "agree" : "disagree"} ${props.className || ""}`}
+    <Flex
+      bg={agreeingAnswer ? "agree" : "disagree"}
+      p={2}
+      borderRadius="4px"
+      position="relative"
+      alignItems="center"
+      justifyContent="center"
+      mb="10px"
+      {...props}
     >
-      <div className="speech-bubble__arrow"></div>
-      <div className="speech-bubble__content">{props.content}</div>
-    </div>
+      <Box
+        position="absolute"
+        bg="inherit"
+        h="10px"
+        w="10px"
+        top="100%"
+        clipPath="polygon(0 0, 50% 100%, 100% 0)"
+      />
+      <Text textStyle="bodySmBold" color={textColor}>
+        {content}
+      </Text>
+    </Flex>
   );
 };
