@@ -1,4 +1,3 @@
-import "../styles/AnswerCard.css";
 import { useTranslation } from "react-i18next";
 import { Question } from "@data/types";
 import { RadioAnswer } from "./RadioAnswer";
@@ -7,17 +6,23 @@ import { CandidateAnswer } from "@data/candidateAnswers";
 import { CommentCard } from "./CommentCard";
 import { useLocalizedString } from "@hooks/useLocalizedString";
 import { getAnswerByQuestionId } from "@stores/answerStore";
-import { Badge, Flex, Heading } from "@chakra-ui/react";
+import { Badge, Card, CardProps, Flex, Heading } from "@chakra-ui/react";
 
-interface ICardProps {
+interface IAnswerCardProps {
   question: Question;
   candidateAnswer: CandidateAnswer;
   questionsCount: number;
   candidateImgSrc: string;
 }
 
-export const AnswerCard = (props: ICardProps) => {
-  const { candidateAnswer, question, questionsCount } = props;
+export const AnswerCard = (props: IAnswerCardProps & CardProps) => {
+  const {
+    candidateAnswer,
+    question,
+    questionsCount,
+    candidateImgSrc,
+    ...rest
+  } = props;
   const { t } = useTranslation();
   const { localize } = useLocalizedString();
   const questionId = question.id;
@@ -29,11 +34,11 @@ export const AnswerCard = (props: ICardProps) => {
   const userAnswer = getAnswerByQuestionId(question.id);
 
   return (
-    <section className="answer-card">
+    <Card as="section" {...rest} variant="bigCentered">
       <Flex justifyContent="center" align="center" gap={6} w="100%">
         <Badge variant="negative">{`${question.position}/${questionsCount}`}</Badge>
       </Flex>
-      <Heading as="h2" variant="question">
+      <Heading as="h2" variant="question" my={5}>
         {question.question.en}
       </Heading>
       {question.questionType === "yes-no" ? (
@@ -42,14 +47,14 @@ export const AnswerCard = (props: ICardProps) => {
           t={t}
           candidateAnswer={candidateAnswer?.answer ?? null}
           userAnswer={userAnswer?.answer ?? null}
-          candidateImgSrc={props.candidateImgSrc}
+          candidateImgSrc={candidateImgSrc}
         />
       ) : (
         <RadioAnswer
           t={t}
           candidateAnswer={candidateAnswer?.answer ?? null}
           userAnswer={userAnswer?.answer ?? null}
-          candidateImgSrc={props.candidateImgSrc}
+          candidateImgSrc={candidateImgSrc}
         />
       )}
       {candidateComment && (
@@ -60,6 +65,6 @@ export const AnswerCard = (props: ICardProps) => {
           answer={candidateAnswer?.answer}
         />
       )}
-    </section>
+    </Card>
   );
 };

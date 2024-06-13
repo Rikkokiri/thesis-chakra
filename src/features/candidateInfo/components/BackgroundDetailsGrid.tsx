@@ -16,17 +16,10 @@ export const BackgroundDetailsGrid = (props: IBackgroundDetailsProps) => {
   const { t, candidate } = props;
   const { localize } = useLocalizedString();
 
-  /** TODO:
-   .body-bold {
-    font-size: 16px;
-    line-height: 150%;
-    font-weight: 700;
-  } */
-
   return (
     <InfoGrid>
       <InfoGridRow>
-        <InfoGridItem className="body-bold">
+        <InfoGridItem textStyle="bodyBold">
           {t("candidate.website")}
         </InfoGridItem>
         <InfoGridItem>
@@ -42,11 +35,11 @@ export const BackgroundDetailsGrid = (props: IBackgroundDetailsProps) => {
         </InfoGridItem>
       </InfoGridRow>
       <InfoGridRow>
-        <InfoGridItem className="body-bold">Creator</InfoGridItem>
+        <InfoGridItem textStyle="bodyBold">Creator</InfoGridItem>
         <InfoGridItem>{candidate.creator}</InfoGridItem>
       </InfoGridRow>
       <InfoGridRow>
-        <InfoGridItem className="body-bold">Github repository</InfoGridItem>
+        <InfoGridItem textStyle="bodyBold">Github repository</InfoGridItem>
         <InfoGridItem>{candidate.github?.url || "-"}</InfoGridItem>
       </InfoGridRow>
     </InfoGrid>

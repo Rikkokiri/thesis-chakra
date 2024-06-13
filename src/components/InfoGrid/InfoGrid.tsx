@@ -1,19 +1,40 @@
-import { ReactNode } from "react";
-import "./InfoGrid.css";
+import {
+  Grid,
+  GridItem,
+  GridItemProps,
+  GridProps,
+  Stack,
+  StackProps,
+} from "@chakra-ui/react";
 
-interface GridProps {
-  children: ReactNode;
-  className?: string;
+export const InfoGrid = ({ children, ...rest }: StackProps) => {
+  return (
+    <Stack as="ul" spacing={4} listStyleType="none" {...rest}>
+      {children}
+    </Stack>
+  );
+};
+
+/*
+TODO: Define breakpoint variables
+@media (width <= 620px) {
+  .info-grid__row {
+    grid-template-columns: 1fr;
+  }
 }
-
-export const InfoGrid = ({ children }: { children: ReactNode }) => {
-  return <ul className="info-grid">{children}</ul>;
+*/
+export const InfoGridRow = ({ children, ...rest }: GridProps) => {
+  return (
+    <Grid as="li" gridTemplateColumns="1fr 1fr" columnGap="1rem" {...rest}>
+      {children}
+    </Grid>
+  );
 };
 
-export const InfoGridRow = ({ children, className }: GridProps) => {
-  return <li className={`info-grid__row ${className ?? ""}`}>{children}</li>;
-};
-
-export const InfoGridItem = ({ children, className }: GridProps) => {
-  return <div className={`info-grid__item ${className ?? ""}`}>{children}</div>;
+export const InfoGridItem = ({ children, ...rest }: GridItemProps) => {
+  return (
+    <GridItem pb="5px" {...rest}>
+      {children}
+    </GridItem>
+  );
 };

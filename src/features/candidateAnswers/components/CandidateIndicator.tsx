@@ -1,17 +1,23 @@
-import "../styles/CandidateImgIndicator.css";
+import { Image } from "@chakra-ui/react";
 
 interface ICandidateIndicatorProps {
   alt: string;
-  className?: string;
   imgSrc: string;
+  boxSize?: number;
 }
 
-export const CandidateIndicator = (props: ICandidateIndicatorProps) => {
+export const CandidateIndicator = ({
+  alt,
+  imgSrc,
+  boxSize = 6,
+}: ICandidateIndicatorProps) => {
   return (
-    <img
-      src={props.imgSrc}
-      alt={props.alt}
-      className={`candidate-indicator ${props.className || ""}`}
+    <Image
+      boxSize={boxSize}
+      borderRadius="50%"
+      bg="primaryBg"
+      src={imgSrc}
+      alt={alt}
     />
   );
 };

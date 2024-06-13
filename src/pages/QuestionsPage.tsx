@@ -28,7 +28,7 @@ export const QuestionsPage = () => {
           {t("questionPage.description")}
         </Text>
         <Button
-          leftIcon={<FiArrowDown />}
+          leftIcon={<FiArrowDown size="1.25rem" />}
           onClick={() => {
             questionsStartRef.current?.scrollIntoView({
               behavior: "smooth",

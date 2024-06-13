@@ -29,11 +29,11 @@ export const FrontPage = () => {
         <Heading size="3xl" mb={4}>
           {t("frontPage.title")}
         </Heading>
-        <Button rightIcon={<FiChevronRight />} onClick={startCompass}>
+        <Button rightIcon={<FiChevronRight size={20} />} onClick={startCompass}>
           {t("frontPage.start")}
         </Button>
       </Flex>
-      <PageSectionsCol>
+      <PageSectionsCol py={6}>
         <SectionCard title={t("candidates")}>
           <div></div>
         </SectionCard>

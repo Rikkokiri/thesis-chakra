@@ -50,7 +50,6 @@ export const DisplayRadioRange = (props: IDisplayRadioRangeProps) => {
                 {candidateAnswer === option.value && (
                   <CandidateIndicator
                     imgSrc={option.indicatorImgSrc ?? ""}
-                    className="candidate-indicator"
                     alt={""} // TODO: Meaningful alt text
                   />
                 )}

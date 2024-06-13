@@ -1,4 +1,4 @@
-import "../styles/PromiseList.css";
+import { Badge, Box, ListItem, OrderedList } from "@chakra-ui/react";
 
 interface IPromiseListProps {
   items: string[];
@@ -8,13 +8,13 @@ export const PromiseList = (props: IPromiseListProps) => {
   const { items } = props;
 
   return (
-    <ol className="promise-list">
+    <OrderedList listStyleType="none" m={0} p={0}>
       {items.map((item: string, index: number) => (
-        <li key={index} className="promise-list__li">
-          <div className="promise-list__number">{index + 1}</div>
-          <div className="promise-list__li-content">{item}</div>
-        </li>
+        <ListItem key={index} display="flex" gap={6} pb={4}>
+          <Badge variant="rounded">{index + 1}</Badge>
+          <Box pb="5px">{item}</Box>
+        </ListItem>
       ))}
-    </ol>
+    </OrderedList>
   );
 };

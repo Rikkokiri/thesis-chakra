@@ -1,38 +1,26 @@
-import { Button, ButtonVariant, ISharedButtonProps } from "../Button/Button";
-import "./ToggleButton.css";
+import { Button, ButtonProps } from "@chakra-ui/react";
 
-type ToggleButtonVariant = Extract<ButtonVariant, "outline" | "ghost">;
-
-interface IToggleButtonProps extends ISharedButtonProps {
+interface IToggleButtonProps extends ButtonProps {
   isToggled: boolean;
+  toggledVariant?: ButtonProps["variant"];
   untoggledIcon?: JSX.Element;
   toggledIcon?: JSX.Element;
-  variant?: ToggleButtonVariant;
-  toggledClassName?: string;
 }
 
 export const ToggleButton = ({
   children,
   isToggled,
-  isDisabled,
-  onClick,
   untoggledIcon,
   toggledIcon,
   variant = "outline",
-  size,
-  iconSize,
-  className,
-  toggledClassName = "toggled",
+  toggledVariant = "outlineToggled",
+  ...buttonProps
 }: IToggleButtonProps) => {
   return (
     <Button
-      onClick={onClick}
-      iconBefore={isToggled ? toggledIcon : untoggledIcon}
-      className={`toggle-button ${isToggled ? toggledClassName : ""} ${className || ""}`}
-      variant={variant}
-      size={size}
-      isDisabled={isDisabled}
-      iconSize={iconSize}
+      leftIcon={isToggled ? toggledIcon : untoggledIcon}
+      variant={isToggled ? toggledVariant : variant}
+      {...buttonProps}
     >
       {children}
     </Button>

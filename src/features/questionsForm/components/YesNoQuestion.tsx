@@ -22,16 +22,16 @@ export const YesNoQuestion = (props: IYesNoQuestionProps) => {
       <ToggleButton
         isToggled={answer === YesNoAnswer.YES}
         onClick={() => answerQuestion(questionId, YesNoAnswer.YES)}
-        untoggledIcon={<RiThumbUpLine />}
-        toggledIcon={<RiThumbUpFill />}
+        untoggledIcon={<RiThumbUpLine size="1.25rem" />}
+        toggledIcon={<RiThumbUpFill size="1.25rem" />}
       >
         {t("question.yes")}
       </ToggleButton>
       <ToggleButton
         isToggled={answer === YesNoAnswer.NO}
         onClick={() => answerQuestion(questionId, YesNoAnswer.NO)}
-        untoggledIcon={<RiThumbDownLine />}
-        toggledIcon={<RiThumbDownFill />}
+        untoggledIcon={<RiThumbDownLine size="1.25rem" />}
+        toggledIcon={<RiThumbDownFill size="1.25rem" />}
       >
         {t("question.no")}
       </ToggleButton>

@@ -22,11 +22,10 @@ export const AdditionalInfo = (props: IAdditionalInfoProps) => {
       <ToggleButton
         isToggled={isModalOpen}
         onClick={() => setIsModalOpen(true)}
-        untoggledIcon={<FiInfo />}
-        toggledIcon={<FiInfo />}
+        untoggledIcon={<FiInfo size="1.25rem" />}
+        toggledIcon={<FiInfo size="1.25rem" />}
         variant="ghost"
-        size="small"
-        toggledClassName=""
+        size="sm"
       >
         {t("question.whatAbout")}
       </ToggleButton>
