@@ -39,7 +39,7 @@ const solid = defineStyle({
   },
 });
 
-const borderHover = {
+const hoverBg = {
   _hover: {
     bg: brand.black9,
     _dark: {
@@ -53,7 +53,7 @@ const outline = {
   border: "2px solid",
   borderColor: "var(--primary)",
   color: "var(--primary)",
-  ...borderHover,
+  ...hoverBg,
   _disabled: {
     borderColor: brand.black15,
     _dark: {

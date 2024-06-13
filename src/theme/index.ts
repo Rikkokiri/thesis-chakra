@@ -10,6 +10,7 @@ import { headingTheme } from "./components/heading";
 import { iconButtonTheme } from "./components/icon-button";
 import { modalTheme } from "./components/modal";
 import textStyles from "./textStyles";
+import { linkTheme } from "./components/link";
 
 // 2. Add your color mode config
 const config: ThemeConfig = {
@@ -35,6 +36,7 @@ const theme = extendTheme({
     Divider: dividerTheme,
     Heading: headingTheme,
     IconButton: iconButtonTheme,
+    Link: linkTheme,
     Modal: modalTheme,
   },
   semanticTokens: {

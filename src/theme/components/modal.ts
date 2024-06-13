@@ -30,8 +30,14 @@ const baseStyle = definePartsStyle({
     top: 4,
     right: 4,
     borderRadius: "4px",
+    // Remove browser's default focus styles
     _focus: {
+      outline: "none",
       boxShadow: "none",
+    },
+    ":focus-visible": {
+      outlineOffset: "2px",
+      // Note: Using brand colors in outline definition requires using CSS variable
       outline: "2px solid var(--focus-outline-color)",
     },
   },
