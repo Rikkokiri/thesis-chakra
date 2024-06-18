@@ -1,14 +1,15 @@
 import { QuestionType } from "@data/types";
-import "../styles/DisplayRadioRange.css";
 import { SmallSpeechBubble } from "./SmallSpeechBubble";
 import { useTranslation } from "react-i18next";
 import { CandidateIndicator } from "./CandidateIndicator";
+import { Box, Flex, Radio } from "@chakra-ui/react";
+import { radioGroupStyles } from "@/components/RadioRange/RadioRange";
 
 interface IDisplayRadioOption {
   value: number;
   label: string;
   isChecked?: boolean;
-  optionClassName?: string;
+  optionVariant?: string;
   indicatorClassName?: string;
   indicatorImgSrc?: string;
 }
@@ -25,48 +26,72 @@ export const DisplayRadioRange = (props: IDisplayRadioRangeProps) => {
   const { userAnswer, candidateAnswer } = props;
 
   return (
-    <div className="radio-display">
-      {props.options.map((option, index) => {
-        const optionClass = option.optionClassName ?? "";
-
+    <Flex
+      position="relative"
+      mt={userAnswer !== null ? "70px" : "inherit"}
+      sx={radioGroupStyles}
+    >
+      {props.options.map((option) => {
         return (
-          <div
-            className={`radio-display__option ${optionClass}`}
+          <Flex
             key={`radio-option-${option.value}`}
+            position="relative"
+            width="2rem"
+            dir="column"
+            alignItems="center"
+            justifyItems="start"
+            textAlign="center"
           >
-            <input
+            <Radio
               type="radio"
               name="radio-option"
-              id={`radio-option-${option.value}`}
-              value={option.value}
-              checked={option.isChecked}
-              readOnly={true}
-              className={props.isReadonly ? "readonly" : ""}
-            />
-            {option.isChecked && (
-              <div
-                className={`option__indicator ${option.indicatorClassName ?? ""}`}
+              value={option.value.toString()}
+              isChecked={option.isChecked}
+              isReadOnly
+              variant={option.optionVariant}
+            >
+              {option.label}
+            </Radio>
+            {option.isChecked && candidateAnswer === option.value && (
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "0.25rem",
+                  left: "0.25rem",
+                  height: "1.5rem",
+                  width: "1.5rem",
+                  borderRadius: "50%",
+                  ...(candidateAnswer === userAnswer && {
+                    clipPath:
+                      "polygon(-1px -1px, 50% -1px, 50% 100%, -1px 100%)",
+                  }),
+                  cursor: "not-allowed",
+                }}
               >
-                {candidateAnswer === option.value && (
-                  <CandidateIndicator
-                    imgSrc={option.indicatorImgSrc ?? ""}
-                    alt={""} // TODO: Meaningful alt text
-                  />
-                )}
-              </div>
+                <CandidateIndicator
+                  imgSrc={option.indicatorImgSrc ?? ""}
+                  alt={""} // TODO: Meaningful alt text
+                />
+              </Box>
             )}
-            <label key={index}>{option.label}</label>
             {userAnswer === option.value && (
               <SmallSpeechBubble
                 content={t("question.yourAnswer")}
                 answer={userAnswer}
                 questionType={QuestionType.AGREE_SCALE}
-                className="user-answer-bubble"
+                sx={{
+                  justifySelf: "flex-start",
+                  bottom: "calc(100% + 10px)",
+                  alignSelf: "center",
+                  position: "absolute",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }}
               />
             )}
-          </div>
+          </Flex>
         );
       })}
-    </div>
+    </Flex>
   );
 };

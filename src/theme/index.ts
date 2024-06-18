@@ -10,6 +10,7 @@ import { headingTheme } from "./components/heading";
 import { modalTheme } from "./components/modal";
 import textStyles from "./textStyles";
 import { linkTheme } from "./components/link";
+import { radioTheme } from "./components/radio";
 
 // 2. Add your color mode config
 const config: ThemeConfig = {
@@ -36,6 +37,7 @@ const theme = extendTheme({
     Heading: headingTheme,
     Link: linkTheme,
     Modal: modalTheme,
+    Radio: radioTheme,
   },
   semanticTokens: {
     colors: {
@@ -67,6 +69,10 @@ const theme = extendTheme({
       disagree: {
         default: brand.error,
         _dark: brand.liveRed,
+      },
+      radioBg: {
+        default: brand.gray30,
+        _dark: brand.gray60,
       },
     },
   },

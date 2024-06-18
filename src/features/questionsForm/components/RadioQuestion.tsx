@@ -19,22 +19,22 @@ export const RadioQuestion = (props: IRadioQuestionProps) => {
           {
             value: 1,
             label: t("answerScale.strongDisagree"),
-            optionClassName: "disagree",
+            optionVariant: "disagree",
           },
           {
             value: 2,
             label: t("answerScale.disagree"),
-            optionClassName: "disagree",
+            optionVariant: "disagree",
           },
-          { value: 4, label: t("answerScale.agree"), optionClassName: "agree" },
+          { value: 4, label: t("answerScale.agree"), optionVariant: "agree" },
           {
             value: 5,
             label: t("answerScale.strongAgree"),
-            optionClassName: "agree",
+            optionVariant: "agree",
           },
         ]}
-        value={value ?? undefined}
-        onChange={(value) => answerQuestion(questionId, value)}
+        value={value?.toString() ?? undefined}
+        onChange={(value) => answerQuestion(questionId, parseInt(value, 10))}
       />
     </RowCentered>
   );

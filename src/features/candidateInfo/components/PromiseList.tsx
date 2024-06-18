@@ -12,7 +12,9 @@ export const PromiseList = (props: IPromiseListProps) => {
       {items.map((item: string, index: number) => (
         <ListItem key={index} display="flex" gap={6} pb={4}>
           <Badge variant="rounded">{index + 1}</Badge>
-          <Box pb="5px">{item}</Box>
+          <Box pb="5px" fontWeight="400">
+            {item}
+          </Box>
         </ListItem>
       ))}
     </OrderedList>
