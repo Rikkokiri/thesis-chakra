@@ -4,6 +4,7 @@ import { useDetectTheme } from "@hooks/useDetectTheme";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { AppFooter } from "./layout/footer";
+import { useDocumentTitle } from "./hooks/useDocumentTitle";
 
 function App() {
   const { prefersDarkMode, setActiveTheme } = useDetectTheme();
@@ -12,6 +13,8 @@ function App() {
   useEffect(() => {
     setActiveTheme(prefersDarkMode);
   }, [prefersDarkMode, setActiveTheme]);
+
+  useDocumentTitle(t("pageTitle.default", { library: t("libraryName") }));
 
   return (
     <>
