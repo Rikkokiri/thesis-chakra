@@ -24,20 +24,6 @@
   flex-direction: column;
   place-items: center start;
   width: 2rem;
-  text-align: center;
-}
-
-.radio-range label {
-  font-size: 0.75rem;
-  margin-top: 0.75rem;
-}
-
-.radio-range__option:first-child {
-  text-align: left;
-}
-
-.radio-range__option:last-child {
-  text-align: right;
 }
 
 @keyframes scale-option {
