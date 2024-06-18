@@ -16,6 +16,7 @@ export const styles = {
     ":root": {
       "--focus-outline-color": mode(brand.blueBlack, brand.gray5)(props),
       "--primary": mode(brand.blueBlack, brand.gray5)(props),
+      "--toolbar-shadow": `${brand.black15} 0 0 7px 0`,
       /* Component sizing */
       "--match-bar-height": "76px",
       "--toolbar-height": "72px",

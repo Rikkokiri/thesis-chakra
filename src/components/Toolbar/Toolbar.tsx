@@ -1,21 +1,35 @@
 import { useTranslation } from "react-i18next";
-import "./Toolbar.css";
-import { Link } from "react-router-dom";
+import { Link as ReactRouterLink } from "react-router-dom";
 import { Route } from "src/routes";
-import { chakra, useColorModeValue } from "@chakra-ui/react";
+import { Flex, chakra, useColorModeValue, Square } from "@chakra-ui/react";
+import { Link as ChakraLink } from "@chakra-ui/react";
+import { RowCentered } from "@/layout";
 
 export const Toolbar = () => {
   const { t } = useTranslation();
   const bg = useColorModeValue("brand.white", "brand.blueBlack");
 
   return (
-    <chakra.header className="toolbar" bg={bg}>
-      <nav className="toolbar__nav">
-        <div className="toolbar__logo-wrapper">
-          <div className="toolbar__logo"></div>
-          <Link to={Route.ROOT}>{t("navigation.frontPage")}</Link>
-        </div>
-      </nav>
+    <chakra.header
+      display="flex"
+      alignItems="center"
+      bg={bg}
+      px={6}
+      h="var(--toolbar-height)"
+      boxShadow="rgba(0, 0, 0, 15%) 0 0 7px 0"
+    >
+      <RowCentered as="nav" maxW="var(--toolbar-max-width)" fontWeight={700}>
+        <Flex gap={6} align="center">
+          <Square size="2.5rem" borderRadius="2px" bg="brand.yleLogo"></Square>
+          <ChakraLink
+            to={Route.ROOT}
+            as={ReactRouterLink}
+            variant="noUnderline"
+          >
+            {t("navigation.frontPage")}
+          </ChakraLink>
+        </Flex>
+      </RowCentered>
     </chakra.header>
   );
 };
