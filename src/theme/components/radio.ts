@@ -63,6 +63,12 @@ const baseStyle = definePartsStyle({
       _hover: {
         ...radioBg,
       },
+      ":read-only": {
+        animation: "none",
+      },
+    },
+    ":read-only": {
+      cursor: "not-allowed",
     },
   },
 });

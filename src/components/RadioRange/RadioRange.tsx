@@ -13,27 +13,26 @@ interface RadioRangeProps {
   isReadonly?: boolean;
 }
 
+export const radioGroupStyles = {
+  display: "flex",
+  width: "100%",
+  maxW: "var(--radio-range-max-width)",
+  position: "relative",
+  justifyContent: "space-between",
+  "::before": {
+    content: '""',
+    position: "absolute",
+    top: "calc(2rem / 2 - 0.25rem / 2)",
+    width: "calc(100% - 2rem)",
+    height: "0.25rem",
+    backgroundColor: "var(--radio-range-bg)",
+    bg: "radioBg",
+  },
+};
+
 export const RadioRange = (props: RadioRangeProps) => {
   return (
-    <RadioGroup
-      onChange={props.onChange}
-      display="flex"
-      w="100%"
-      maxW="var(--radio-range-max-width)"
-      position="relative"
-      justifyContent="space-between"
-      sx={{
-        "::before": {
-          content: '""',
-          position: "absolute",
-          top: "calc(2rem / 2 - 0.25rem / 2)",
-          width: "calc(100% - 2rem)",
-          height: "0.25rem",
-          backgroundColor: "var(--radio-range-bg)",
-          bg: "radioBg",
-        },
-      }}
-    >
+    <RadioGroup onChange={props.onChange} sx={radioGroupStyles}>
       {props.options.map((option) => (
         <Radio
           key={`radio-option-${option.value}`}
