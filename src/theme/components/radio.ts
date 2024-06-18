@@ -30,13 +30,7 @@ const baseStyle = definePartsStyle({
     flexDirection: "column",
     placeItems: "center start",
     width: "2rem",
-    textAlign: "center",
-    ":first-of-type": {
-      textAlign: "left",
-    },
-    ":last-of-type": {
-      textAlign: "right",
-    },
+    textAlign: "inherit",
   },
   label: {
     // fontSize: "12px", // Font-size had to be applied through sizes instead of baseStyle

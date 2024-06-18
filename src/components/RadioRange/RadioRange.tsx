@@ -28,6 +28,13 @@ export const radioGroupStyles = {
     backgroundColor: "var(--radio-range-bg)",
     bg: "radioBg",
   },
+  textAlign: "center",
+  "> :first-child": {
+    textAlign: "left",
+  },
+  "> :last-child": {
+    textAlign: "right",
+  },
 };
 
 export const RadioRange = (props: RadioRangeProps) => {

@@ -30,6 +30,7 @@ const rounded = defineStyle({
   h: 6,
   w: 6,
   fontSize: "0.75rem",
+  fontWeight: 900,
   borderRadius: "50%",
   lineHeight: 6,
   textAlign: "center",
