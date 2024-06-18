@@ -52,8 +52,16 @@ const smButton = defineStyle({
   pl: 3.5,
 });
 
+const noUnderline = defineStyle({
+  textDecoration: "none",
+  _hover: {
+    textDecoration: "none",
+  },
+});
+
 export const linkTheme = defineStyleConfig({
   variants: {
+    noUnderline,
     outlineButtonLink,
   },
   sizes: {

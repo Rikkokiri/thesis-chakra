@@ -7,7 +7,6 @@ import { buttonTheme } from "./components/button";
 import { cardTheme } from "./components/card";
 import { dividerTheme } from "./components/divider";
 import { headingTheme } from "./components/heading";
-import { iconButtonTheme } from "./components/icon-button";
 import { modalTheme } from "./components/modal";
 import textStyles from "./textStyles";
 import { linkTheme } from "./components/link";
@@ -35,7 +34,6 @@ const theme = extendTheme({
     Card: cardTheme,
     Divider: dividerTheme,
     Heading: headingTheme,
-    IconButton: iconButtonTheme,
     Link: linkTheme,
     Modal: modalTheme,
   },
