@@ -62,7 +62,6 @@ export const CandidatesMatchBar = (
           variant="constSquareToggle"
           toggledVariant="constSquareToggle"
           size="mdIconSquare"
-          border="2px solid black"
           aria-label={resultsHidden ? "Show results" : "Hide results"} // TODO: Translate
         />
       </Flex>

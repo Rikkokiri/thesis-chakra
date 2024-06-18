@@ -45,7 +45,7 @@ export const useAnswerStore = create<AnswerState>()(
         }),
     }),
     {
-      name: "vaalikone-answers", // name of the item in the storage (must be unique)
+      name: "chakra-vaalikone-answers", // name of the item in the storage (must be unique)
       storage: createJSONStorage(() => sessionStorage),
     },
   ),

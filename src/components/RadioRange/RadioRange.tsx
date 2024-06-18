@@ -39,7 +39,11 @@ export const radioGroupStyles = {
 
 export const RadioRange = (props: RadioRangeProps) => {
   return (
-    <RadioGroup onChange={props.onChange} sx={radioGroupStyles}>
+    <RadioGroup
+      value={props.value}
+      onChange={props.onChange}
+      sx={radioGroupStyles}
+    >
       {props.options.map((option) => (
         <Radio
           key={`radio-option-${option.value}`}

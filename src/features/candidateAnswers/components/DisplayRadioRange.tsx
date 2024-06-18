@@ -49,6 +49,7 @@ export const DisplayRadioRange = (props: IDisplayRadioRangeProps) => {
               isChecked={option.isChecked}
               isReadOnly
               variant={option.optionVariant}
+              sx={{ cursor: "not-allowed" }}
             >
               {option.label}
             </Radio>

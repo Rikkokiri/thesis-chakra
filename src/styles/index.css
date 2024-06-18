@@ -1,10 +1,4 @@
-@import "./colors.css";
-
-/*
 @import "./reset.css";
-@import "./themes/light-theme.css";
-@import "./themes/dark-theme.css";
-*/
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
