@@ -39,7 +39,7 @@ const solid = defineStyle({
   },
 });
 
-const borderHover = {
+const hoverBg = {
   _hover: {
     bg: brand.black9,
     _dark: {
@@ -53,7 +53,7 @@ const outline = {
   border: "2px solid",
   borderColor: "var(--primary)",
   color: "var(--primary)",
-  ...borderHover,
+  ...hoverBg,
   _disabled: {
     borderColor: brand.black15,
     _dark: {
@@ -77,13 +77,32 @@ const outlineToggled = defineStyle({
   },
 });
 
-const ghost = defineStyle({});
+const ghost = defineStyle({
+  ":focus-visible, :hover, :focus": {
+    background: "inherit",
+  },
+});
 
 const toggledGhost = defineStyle({
   ...toggleBg,
   _hover: {
     bg: "inherit",
   },
+});
+
+const matchResultButton = defineStyle({
+  border: "none",
+  bg: "transparent",
+  padding: 0,
+  height: "100%",
+  borderRadius: "4px",
+});
+
+const constSquareToggle = defineStyle({
+  ...ghost,
+  justifyContent: "flex",
+  alignItems: "center",
+  borderRadius: "4px",
 });
 
 export const buttonTheme = defineStyleConfig({
@@ -105,6 +124,19 @@ export const buttonTheme = defineStyleConfig({
       pr: 3,
       pl: 3.5,
     },
+    matchBtnSize: {
+      w: "36px",
+      minW: "36px",
+    },
+    mdIconSquare: {
+      fontSize: "1.5rem",
+      h: 12,
+      minW: 12,
+      py: 1,
+      pl: 2.5,
+      pr: 1.5,
+      gap: 0,
+    },
   },
   variants: {
     solid,
@@ -112,5 +144,7 @@ export const buttonTheme = defineStyleConfig({
     outlineToggled,
     ghost,
     toggledGhost,
+    constSquareToggle,
+    matchResultButton,
   },
 });

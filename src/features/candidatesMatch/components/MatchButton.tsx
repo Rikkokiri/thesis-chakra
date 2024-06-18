@@ -1,6 +1,4 @@
-import { Text } from "@chakra-ui/react";
-import "../styles/MatchButton.css";
-import { useState } from "react";
+import { Button, Flex, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { CandidateModal } from "./CandidateModal";
 import { MatchWithDetails } from "../types";
 
@@ -11,28 +9,39 @@ interface IMatchButtonProps {
 export const MatchButton = (props: IMatchButtonProps) => {
   const { name, rank, percentage, logoSrc } = props.candidate;
   const ariaLabel = `top ${rank} - ${name} - ${percentage}% match`;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <button
+      <Button
         aria-label={ariaLabel}
-        className="match-result"
-        onClick={() => {
-          setIsModalOpen(true);
-        }}
+        variant="matchResultButton"
+        size="matchBtnSize"
+        onClick={onOpen}
+        display="flex"
+        flexDirection="column"
+        gap={1}
       >
-        <div className="match-result__img-wrapper">
-          <img src={logoSrc} aria-hidden className="match-result__img" />
-          <Text textStyle="bodySm" textAlign="center">{`${percentage}%`}</Text>
-        </div>
-      </button>
+        <Flex direction="column" justifyContent="flex-start">
+          <Image
+            src={logoSrc}
+            aria-hidden
+            width="32px"
+            p="3px"
+            height="43px"
+            bg="brand.gray10"
+            borderRadius="4px"
+          />
+          <Text
+            textStyle="bodySmBold"
+            textAlign="center"
+          >{`${percentage}%`}</Text>
+        </Flex>
+      </Button>
       <CandidateModal
-        isOpen={isModalOpen}
-        closeModal={() => {
-          setIsModalOpen(false);
-        }}
-        {...props}
+        candidate={props.candidate}
+        isOpen={isOpen}
+        onClose={onClose}
       />
     </>
   );

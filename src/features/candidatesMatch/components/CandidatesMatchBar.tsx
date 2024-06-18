@@ -1,5 +1,3 @@
-import "../styles/CandidatesMatchBar.css";
-import { useState } from "react";
 import { FiEyeOff } from "react-icons/fi";
 import { FiEye } from "react-icons/fi";
 import { MatchButton } from "./MatchButton";
@@ -9,15 +7,16 @@ import {
   Box,
   BoxProps,
   Flex,
-  IconButton,
+  useBoolean,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { ToggleButton } from "@/components/ToggleButton/ToggleButton";
 
 export const CandidatesMatchBar = (
   props: ReturnType<typeof useCandidatesMatch>,
 ) => {
   const { topFourCandidates, topCount, displayMatches } = props;
-  const [resultsHidden, setResultsHidden] = useState<boolean>(false);
+  const [resultsHidden, setResultsHidden] = useBoolean(false);
 
   if (!displayMatches) {
     return null;
@@ -55,11 +54,15 @@ export const CandidatesMatchBar = (
                 <MatchButton candidate={candidate} key={candidate.id} />
               ))}
         </Flex>
-        <IconButton
-          onClick={() => setResultsHidden(!resultsHidden)}
-          icon={resultsHidden ? <FiEyeOff /> : <FiEye />}
-          variant="ghost"
-          fontSize="1.5rem"
+        <ToggleButton
+          isToggled={resultsHidden}
+          onClick={setResultsHidden.toggle}
+          untoggledIcon={<FiEye />}
+          toggledIcon={<FiEyeOff />}
+          variant="constSquareToggle"
+          toggledVariant="constSquareToggle"
+          size="mdIconSquare"
+          border="2px solid black"
           aria-label={resultsHidden ? "Show results" : "Hide results"} // TODO: Translate
         />
       </Flex>

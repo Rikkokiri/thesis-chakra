@@ -1,11 +1,12 @@
 import { TFunction } from "i18next";
 import { RiThumbUpLine } from "react-icons/ri";
 import { RiThumbDownLine } from "react-icons/ri";
-import "../styles/YesOrNoAnswer.css";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { YesNoAnswer, QuestionType } from "@data/types";
 import { SmallSpeechBubble } from "./SmallSpeechBubble";
 import { CandidateIndicator } from "./CandidateIndicator";
+import { RowCentered } from "@/layout";
+import { Flex } from "@chakra-ui/react";
 
 interface IYesNoAnswerProps {
   t: TFunction;
@@ -34,13 +35,24 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
   ];
 
   return (
-    <div className="yes-or-no-answer__container">
+    <RowCentered
+      alignItems="flex-end"
+      gap={6}
+      position="relative"
+      sx={{
+        ":has(.user-answer-bubble)": {
+          mt: "50px",
+          mb: "10px",
+        },
+      }}
+    >
       {options.map((option) => {
         const isToggled = candidateAnswer === option.value;
 
         return (
-          <div className="yes-or-no-answer__option" key={option.value}>
+          <Flex direction="column" key={option.value}>
             <ToggleButton
+              mt={2}
               isDisabled
               variant="outline"
               isToggled={isToggled}
@@ -50,7 +62,6 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
                   imgSrc={candidateImgSrc}
                 />
               }
-              // iconSize={isToggled ? 24 : undefined}
               untoggledIcon={
                 option.value === YesNoAnswer.YES ? (
                   <RiThumbUpLine size="1.25rem" />
@@ -63,15 +74,17 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
             </ToggleButton>
             {userAnswer === option.value && (
               <SmallSpeechBubble
+                position="absolute"
+                bottom="calc(100% + 10px)"
                 content={t("question.yourAnswer")}
                 answer={userAnswer}
                 questionType={QuestionType.YES_NO}
                 className="user-answer-bubble"
               />
             )}
-          </div>
+          </Flex>
         );
       })}
-    </div>
+    </RowCentered>
   );
 };
