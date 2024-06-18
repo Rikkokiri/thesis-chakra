@@ -16,8 +16,11 @@ const baseStyle = definePartsStyle({
   dialog: {
     my: "auto",
     borderRadius: 0,
-
     padding: 4,
+    bg: brand.white,
+    _dark: {
+      bg: brand.gray90,
+    },
   },
   body: {
     p: 0,
