@@ -17,7 +17,11 @@ export const AppFooter = ({ t }: { t: TFunction }) => {
         }}
       >
         <Link to="/">{t("footer.frontPageLink")}</Link>
-        <a href="https://vaalit.yle.fi/vaalikone/presidentinvaali2024">
+        <a
+          href="https://vaalit.yle.fi/vaalikone/presidentinvaali2024"
+          target="_blank"
+          rel="noreferrer"
+        >
           Ylen vaalikone presidentivaaleissa 2024
         </a>
         {/* TODO: Link to source code */}
