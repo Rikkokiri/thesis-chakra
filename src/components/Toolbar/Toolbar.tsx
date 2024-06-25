@@ -13,12 +13,20 @@ export const Toolbar = () => {
     <chakra.header
       display="flex"
       alignItems="center"
+      justifyContent="center"
       bg={bg}
       px={6}
       h="var(--toolbar-height)"
       boxShadow="rgba(0, 0, 0, 15%) 0 0 7px 0"
+      position="relative"
+      zIndex={1}
     >
-      <RowCentered as="nav" maxW="var(--toolbar-max-width)" fontWeight={700}>
+      <RowCentered
+        as="nav"
+        maxW="var(--toolbar-max-width)"
+        justifyContent="flex-start"
+        fontWeight={700}
+      >
         <Flex gap={6} align="center">
           <Square size="2.5rem" borderRadius="2px" bg="brand.yleLogo"></Square>
           <ChakraLink
