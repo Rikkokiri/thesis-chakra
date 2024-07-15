@@ -1,6 +1,5 @@
 import { radioAnatomy } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers, keyframes } from "@chakra-ui/react";
-import { brand } from "../colors";
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(radioAnatomy.keys);
@@ -17,9 +16,9 @@ const scaleOption = keyframes`
 `;
 
 const radioBg = {
-  backgroundColor: brand.gray30,
+  backgroundColor: "brand.gray30",
   _dark: {
-    bg: brand.gray60,
+    bg: "brand.gray60",
   },
 };
 
@@ -46,12 +45,12 @@ const baseStyle = definePartsStyle({
       ...radioBg,
     },
     _checked: {
-      backgroundColor: brand.gray30,
+      backgroundColor: "brand.gray30",
       borderWidth: "0.25rem",
       "::before": {
         height: "1.5rem",
         width: "1.5rem",
-        backgroundColor: brand.blueBlack,
+        backgroundColor: "brand.blueBlack",
       },
       animation: `${scaleOption} 0.3s ease 0s 1`,
       _hover: {
@@ -68,9 +67,9 @@ const agree = definePartsStyle({
   control: {
     _checked: {
       "::before": {
-        backgroundColor: brand.success,
+        backgroundColor: "brand.success",
         _dark: {
-          backgroundColor: brand.greenBright,
+          backgroundColor: "brand.greenBright",
         },
       },
     },
@@ -81,9 +80,9 @@ const disagree = definePartsStyle({
   control: {
     _checked: {
       "::before": {
-        backgroundColor: brand.error,
+        backgroundColor: "brand.error",
         _dark: {
-          backgroundColor: brand.liveRed,
+          backgroundColor: "brand.liveRed",
         },
       },
     },

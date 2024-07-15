@@ -1,6 +1,5 @@
 import { cardAnatomy } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
-import { brand } from "../colors";
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(cardAnatomy.keys);
@@ -11,9 +10,9 @@ const baseStyle = definePartsStyle({
     color: "text",
     maxW: "var(--card-max-width)",
     borderRadius: "4px",
-    backgroundColor: brand.white,
+    backgroundColor: "brand.white",
     _dark: {
-      backgroundColor: brand.blueBlack,
+      backgroundColor: "brand.blueBlack",
     },
   },
   header: {
@@ -55,10 +54,10 @@ const section = definePartsStyle({
     pt: "21px",
     pb: 4,
     borderBottomWidth: "2px",
-    borderBottomColor: brand.gray20,
+    borderBottomColor: "brand.gray20",
     borderBottomStyle: "solid",
     _dark: {
-      borderBottomColor: brand.gray60,
+      borderBottomColor: "brand.gray60",
     },
   },
 });
@@ -67,9 +66,9 @@ const comment = definePartsStyle({
   container: {
     maxW: "var(--comment-max-width)",
     w: "100%",
-    backgroundColor: brand.gray20,
+    backgroundColor: "brand.gray20",
     _dark: {
-      backgroundColor: brand.gray90,
+      backgroundColor: "brand.gray90",
     },
     pt: 2,
     px: 4,

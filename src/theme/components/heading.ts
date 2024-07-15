@@ -1,7 +1,6 @@
 import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
 
 const baseStyle = defineStyle({
-  // fontFamily: "mono", // TODO: Customize heading font
   fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
   color: "brand.darkBlue",
   fontWeight: 700,

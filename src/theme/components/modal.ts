@@ -1,6 +1,5 @@
 import { modalAnatomy as parts } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
-import { brand } from "../colors";
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys);
@@ -8,18 +7,18 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const baseStyle = definePartsStyle({
   // define the part you're going to style
   overlay: {
-    bg: brand.black41,
+    bg: "brand.black41",
     _dark: {
-      bg: brand.black70,
+      bg: "brand.black70",
     },
   },
   dialog: {
     my: "auto",
     borderRadius: 0,
     padding: 4,
-    bg: brand.white,
+    bg: "brand.white",
     _dark: {
-      bg: brand.gray90,
+      bg: "brand.gray90",
     },
   },
   body: {
@@ -40,7 +39,7 @@ const baseStyle = definePartsStyle({
     },
     ":focus-visible": {
       outlineOffset: "2px",
-      // Note: Using brand colors in outline definition requires using CSS variable
+      // Note: Using "brand colors in outline definition requires using CSS variable
       outline: "2px solid var(--focus-outline-color)",
     },
   },

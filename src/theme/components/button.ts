@@ -1,11 +1,10 @@
 import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
-import { brand } from "../colors";
 
 const baseStyle = {
   fontWeight: 700,
   lineHeight: 1.5,
   padding: ".25rem 1.5rem",
-  borderRadius: "100px", // TODO: Use rem
+  borderRadius: "100px",
   width: "fit-content",
   // Remove browser's default focus styles
   _focus: {
@@ -24,26 +23,26 @@ const baseStyle = {
 };
 
 const solid = defineStyle({
-  color: brand.white,
-  bg: brand.blueBlack,
+  color: "brand.white",
+  bg: "brand.blueBlack",
   border: "none",
   _dark: {
-    color: brand.blueBlack, // TODO: blueBlack
-    bg: brand.gray5,
+    color: "brand.blueBlack",
+    bg: "brand.gray5",
   },
   _hover: {
-    bg: brand.black70,
+    bg: "brand.black70",
     _dark: {
-      bg: brand.white71,
+      bg: "brand.white71",
     },
   },
 });
 
 const hoverBg = {
   _hover: {
-    bg: brand.black9,
+    bg: "brand.black9",
     _dark: {
-      bg: brand.white17,
+      bg: "brand.white17",
     },
   },
 };
@@ -55,17 +54,17 @@ const outline = {
   color: "var(--primary)",
   ...hoverBg,
   _disabled: {
-    borderColor: brand.black15,
+    borderColor: "brand.black15",
     _dark: {
-      borderColor: brand.white21,
+      borderColor: "brand.white21",
     },
   },
 };
 
 const toggleBg = {
-  bg: brand.black9,
+  bg: "brand.black9",
   _dark: {
-    bg: brand.white17,
+    bg: "brand.white17",
   },
 };
 
